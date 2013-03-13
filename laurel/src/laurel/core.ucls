@@ -1,238 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.1" icons="true" always-add-relationships="false" generalizations="true" realizations="false" 
   associations="true" dependencies="false" nesting-relationships="false">  
-  <class id="1" language="java" name="laurel.EstadoItem" project="laurel" file="/laurel/src/laurel/EstadoItem.java" 
+  <enumeration id="1" language="java" name="laurel.Prioridad" project="laurel" file="/laurel/src/laurel/Prioridad.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="69" width="96" x="188" y="582"/>    
-    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
-      visibility="false">      
-      <attributes public="true" package="true" protected="true" private="true"/>      
-      <operations public="true" package="true" protected="true" private="true"/>    
-    </display>  
-  </class>  
-  <enumeration id="2" language="java" name="laurel.Prioridad" project="laurel" file="/laurel/src/laurel/Prioridad.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="105" width="105" x="62" y="237"/>    
+    <position height="-1" width="-1" x="79" y="315"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="false">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </enumeration>  
-  <class id="3" language="java" name="laurel.Usuario" project="laurel" file="/laurel/src/laurel/Usuario.java" 
+  <class id="2" language="java" name="laurel.Laurel" project="laurel" file="/laurel/src/laurel/Laurel.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="69" width="96" x="364" y="237"/>    
+    <position height="-1" width="-1" x="495" y="30"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="false">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="laurel.Equipo" project="laurel" file="/laurel/src/laurel/Equipo.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="51" width="66" x="432" y="128"/>    
-    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
-      visibility="false">      
-      <attributes public="true" package="true" protected="true" private="true"/>      
-      <operations public="true" package="true" protected="true" private="true"/>    
-    </display>  
-  </class>  
-  <class id="5" language="java" name="laurel.Laurel" project="laurel" file="/laurel/src/laurel/Laurel.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="51" width="64" x="382" y="37"/>    
-    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
-      visibility="false">      
-      <attributes public="true" package="true" protected="true" private="true"/>      
-      <operations public="true" package="true" protected="true" private="true"/>    
-    </display>  
-  </class>  
-  <class id="6" language="java" name="laurel.Item" project="laurel" file="/laurel/src/laurel/Item.java" binary="false" 
+  <class id="3" language="java" name="laurel.Item" project="laurel" file="/laurel/src/laurel/Item.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="51" width="53" x="172" y="128"/>    
+    <position height="-1" width="-1" x="140" y="157"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="false">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <enumeration id="7" language="java" name="laurel.RoleEquipo" project="laurel" 
+  <enumeration id="4" language="java" name="laurel.RoleEquipo" project="laurel" 
     file="/laurel/src/laurel/RoleEquipo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="123" width="157" x="500" y="237"/>    
+    <position height="-1" width="-1" x="628" y="306"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="false">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </enumeration>  
-  <class id="8" language="java" name="laurel.Proyecto" project="laurel" file="/laurel/src/laurel/Proyecto.java" 
+  <class id="5" language="java" name="laurel.Proyecto" project="laurel" file="/laurel/src/laurel/Proyecto.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="69" width="96" x="265" y="128"/>    
+    <position height="-1" width="-1" x="359" y="160"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="false">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="laurel.TipoItem" project="laurel" file="/laurel/src/laurel/TipoItem.java" 
+  <class id="6" language="java" name="laurel.TipoItem" project="laurel" file="/laurel/src/laurel/TipoItem.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="69" width="96" x="228" y="237"/>    
+    <position height="-1" width="-1" x="276" y="303"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="false">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="laurel.EstadoSecuencia" project="laurel" 
+  <class id="7" language="java" name="laurel.EstadoSecuencia" project="laurel" 
     file="/laurel/src/laurel/EstadoSecuencia.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="51" width="123" x="228" y="491"/>    
+    <position height="-1" width="-1" x="278" y="521"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="false">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="laurel.CicloDeVida" project="laurel" file="/laurel/src/laurel/CicloDeVida.java" 
+  <class id="8" language="java" name="laurel.CicloDeVida" project="laurel" file="/laurel/src/laurel/CicloDeVida.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="51" width="92" x="228" y="400"/>    
+    <position height="-1" width="-1" x="275" y="407"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="false">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <association id="12">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="13" name="siguientes"/>      
-      <multiplicity id="14" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="15">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="16" name="cicloDeVida"/>      
-      <multiplicity id="17" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="18">    
-    <bendpoint x="391" y="128"/>    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="19" name="usuarios"/>      
-      <multiplicity id="20" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="21">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="22" name="lider"/>      
-      <multiplicity id="23" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="24">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="25" name="miembros"/>      
-      <multiplicity id="26" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="27">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="28" name="actual"/>      
-      <multiplicity id="29" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="30">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="31" name="role"/>      
-      <multiplicity id="32" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="33">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="34" name="tipoItems"/>      
-      <multiplicity id="35" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="36">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="37" name="proyectos"/>      
-      <multiplicity id="38" minimum="0" maximum="2147483647"/>    
+  <class id="9" language="java" name="laurel.Equipo" project="laurel" file="/laurel/src/laurel/Equipo.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="628" y="145"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
+      visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <association id="10">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="11" name="cicloDeVida"/>      
+      <multiplicity id="12" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="39">    
-    <bendpoint x="31" y="237"/>    
-    <bendpoint x="31" y="400"/>    
-    <bendpoint x="31" y="491"/>    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="40" name="estado"/>      
-      <multiplicity id="41" minimum="0" maximum="1"/>    
+  <association id="13">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="14" name="proyectos"/>      
+      <multiplicity id="15" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="16">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="17" name="prioridad"/>      
+      <multiplicity id="18" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="42">    
-    <bendpoint x="197" y="237"/>    
-    <bendpoint x="197" y="400"/>    
-    <bendpoint x="197" y="491"/>    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="43" name="estadosAnteriores"/>      
-      <multiplicity id="44" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="45">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="46" name="responsable"/>      
-      <multiplicity id="47" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="48">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="49" name="prioridad"/>      
-      <multiplicity id="50" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="51">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="52" name="estadosSecuencia"/>      
-      <multiplicity id="53" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="54">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="55" name="miembros"/>      
-      <multiplicity id="56" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="57">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="58" name="tipo"/>      
-      <multiplicity id="59" minimum="0" maximum="1"/>    
+  <association id="19">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="20" name="equipos"/>      
+      <multiplicity id="21" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="22">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="23" name="estadosSecuencia"/>      
+      <multiplicity id="24" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="25">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="26" name="tipoItems">        
+        <position height="18" width="50" x="292" y="226"/>      
+      </attribute>      
+      <multiplicity id="27" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="28">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="29" name="tipo"/>      
+      <multiplicity id="30" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="31">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="32" name="role"/>      
+      <multiplicity id="33" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
