@@ -20,6 +20,7 @@ Cuando un ítem pasa por un estado, se le debe asignar un responsable. Puede ocu
 
 Funcionalidad mínima a ser entregada
   1. Alta de usuarios en el sistema.
+  1.1 Alta de Equipo y asociacion de usuarios en ese equipo
   2. Alta de tipos de ítems.
   3. Alta de ítems.
   4. Alta de estados del workflow.
