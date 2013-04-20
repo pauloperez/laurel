@@ -1,4 +1,4 @@
-package laurel;
+package edu.laurel;
 
 public class TipoItem {
 	private String nombre;

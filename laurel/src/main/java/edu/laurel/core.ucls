@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.1" icons="true" automaticImage="JPEG" always-add-relationships="false" 
   generalizations="true" realizations="false" associations="true" dependencies="false" nesting-relationships="false">  
-  <enumeration id="1" language="java" name="laurel.Prioridad" project="laurel" file="/laurel/src/laurel/Prioridad.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <enumeration id="1" language="java" name="edu.laurel.Prioridad" project="laurel" 
+    file="laurel/src/main/java/edu/laurel//Prioridad.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="79" y="315"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="false">      
@@ -10,7 +10,7 @@
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </enumeration>  
-  <class id="2" language="java" name="laurel.Laurel" project="laurel" file="/laurel/src/laurel/Laurel.java" 
+  <class id="2" language="java" name="edu.laurel.Laurel" project="laurel" file="laurel/src/main/java/edu/laurel//Laurel.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="495" y="30"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
@@ -19,8 +19,8 @@
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="laurel.Item" project="laurel" file="/laurel/src/laurel/Item.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="3" language="java" name="edu.laurel.Item" project="laurel" file="laurel/src/main/java/edu/laurel//Item.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="140" y="157"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="false">      
@@ -28,8 +28,8 @@
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <enumeration id="4" language="java" name="laurel.RoleEquipo" project="laurel" 
-    file="/laurel/src/laurel/RoleEquipo.java" binary="false" corner="BOTTOM_RIGHT">    
+  <enumeration id="4" language="java" name="edu.laurel.RoleEquipo" project="laurel" 
+    file="laurel/src/main/java/edu/laurel//RoleEquipo.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="628" y="306"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="false">      
@@ -37,7 +37,7 @@
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </enumeration>  
-  <class id="5" language="java" name="laurel.Proyecto" project="laurel" file="/laurel/src/laurel/Proyecto.java" 
+  <class id="5" language="java" name="edu.laurel.Proyecto" project="laurel" file="laurel/src/main/java/edu/laurel//Proyecto.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="359" y="160"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
@@ -46,7 +46,7 @@
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="laurel.TipoItem" project="laurel" file="/laurel/src/laurel/TipoItem.java" 
+  <class id="6" language="java" name="edu.laurel.TipoItem" project="laurel" file="laurel/src/main/java/edu/laurel//TipoItem.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="276" y="303"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
@@ -55,8 +55,8 @@
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="laurel.EstadoSecuencia" project="laurel" 
-    file="/laurel/src/laurel/EstadoSecuencia.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="7" language="java" name="edu.laurel.EstadoSecuencia" project="laurel" 
+    file="laurel/src/main/java/edu/laurel//EstadoSecuencia.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="278" y="521"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="false">      
@@ -64,8 +64,8 @@
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="laurel.CicloDeVida" project="laurel" file="/laurel/src/laurel/CicloDeVida.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <class id="8" language="java" name="edu.laurel.CicloDeVida" project="laurel" 
+    file="laurel/src/main/java/edu/laurel//CicloDeVida.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="275" y="407"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="false">      
@@ -73,7 +73,7 @@
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="laurel.Equipo" project="laurel" file="/laurel/src/laurel/Equipo.java" 
+  <class id="9" language="java" name="edu.laurel.Equipo" project="laurel" file="laurel/src/main/java/edu/laurel//Equipo.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="628" y="145"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
@@ -83,21 +83,19 @@
     </display>  
   </class>  
   <association id="10">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="11" name="tipoItems">        
-        <position height="18" width="50" x="292" y="226"/>      
-      </attribute>      
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="11" name="equipos"/>      
       <multiplicity id="12" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="13">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="14" name="cicloDeVida"/>      
-      <multiplicity id="15" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="14" name="proyectos"/>      
+      <multiplicity id="15" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="16">    
@@ -117,35 +115,37 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="22">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="23" name="proyectos"/>      
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="23" name="tipoItems">        
+        <position height="18" width="50" x="292" y="226"/>      
+      </attribute>      
       <multiplicity id="24" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="25">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="26" name="role"/>      
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="26" name="cicloDeVida"/>      
       <multiplicity id="27" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="28">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="29" name="role"/>      
+      <multiplicity id="30" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="28">    
+  <association id="31">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="29" name="prioridad"/>      
-      <multiplicity id="30" minimum="0" maximum="1"/>    
+      <attribute id="32" name="prioridad"/>      
+      <multiplicity id="33" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="31">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="32" name="equipos"/>      
-      <multiplicity id="33" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
