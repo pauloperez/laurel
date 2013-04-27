@@ -1,17 +1,27 @@
 package edu.laurel;
 
 public class Usuario {
-	private String nombre;
+	private final String nombre;
+	private final java.util.Set<Equipo> equipos;
 
-	public Usuario(String nombre) {
-		this.setNombre(nombre);
+	public Usuario(final String nombre) {
+		this.nombre = nombre;
+		equipos = new java.util.HashSet<Equipo>(5);
 	}
 
 	public String getNombre() {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public boolean esMiembro(final Equipo equipo) {
+		return equipos.contains(equipo);
+	}
+
+	public void asignar(final Equipo equipo) {
+		equipos.add(equipo);
+	}
+
+	public void quitar(final Equipo equipo) {
+		equipos.remove(equipo);
 	}
 }

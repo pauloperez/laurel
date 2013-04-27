@@ -1,9 +1,36 @@
 package edu.laurel;
 
 public class Proyecto {
-	private String nombre;
-	private java.util.Set<TipoItem> tipoItems;
-	
-	private Usuario lider;
-	private java.util.Set<Usuario> miembros;
+	private final String nombre;
+	private final java.util.Collection<TipoItem> tipoItems;
+
+	private final Usuario lider;
+	private final java.util.Collection<Usuario> miembros;
+
+	public Proyecto(final String nombre, final Usuario lider) {
+		this.nombre = nombre;
+		this.lider = lider;
+		miembros = new java.util.ArrayList<Usuario>();
+		tipoItems =  new java.util.HashSet<TipoItem>();
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public java.util.Collection<TipoItem> getTipoItems() {
+		return tipoItems;
+	}
+
+	public java.util.Collection<Usuario> getMiembros() {
+		return miembros;
+	}
+
+	public void adherir(final Usuario usuario) {
+		miembros.add(usuario);
+	}
+
+	public void desligar(final Usuario usuario) {
+		miembros.remove(usuario);
+	}
 }

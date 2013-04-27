@@ -1,27 +1,32 @@
 package edu.laurel;
 
-import java.util.HashSet;
 
 public class Laurel {
 	private java.util.Set<Usuario> usuarios;
 	private java.util.Collection<Proyecto> proyectos;
-	private java.util.Collection<Equipo> equipos;
 	
-	public java.util.Set<Usuario> getUsuarios() {
-		if(usuarios==null)
-			usuarios = new HashSet<Usuario>();
+	public Laurel() {
+		usuarios = new java.util.HashSet<Usuario>();
+		proyectos = new java.util.ArrayList<Proyecto>(5);
+	}
+	
+	public void registrar(Proyecto proyecto){
+		proyectos.add(proyecto);
+	}
+	
+	public java.util.Set<Usuario> lista() {
 		return usuarios;
 	}
 	
-	public boolean exist(Usuario usuario) {
-		return getUsuarios().contains(usuario);
+	public boolean estaRegistrado(Usuario usuario) {
+		return usuarios.contains(usuario);
 	}
 
-	public void addUsuario(Usuario  usuario) {
-		getUsuarios().add(usuario);
+	public void darAlta(Usuario  usuario) {
+		usuarios.add(usuario);
 	}
 
-	public void removeUsuario(Usuario usuario) {
-		getUsuarios().remove(usuario);
+	public void darBaja(Usuario usuario) {
+		usuarios.remove(usuario);
 	}
 }

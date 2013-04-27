@@ -1,6 +1,7 @@
 package edu.laurel;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
@@ -22,12 +23,15 @@ public class LaurelTest {
 
 	@Test
 	public void testAltaUsuario() {
-		Usuario usuario = new Usuario("Usuario Prueba");
+		final Usuario usuario = new Usuario("Usuario Prueba");
+		usuario.asignar(Equipo.CALIDAD);
 
-		laurel.addUsuario(usuario);
-		assertTrue(laurel.exist(usuario));
+		laurel.darAlta(usuario);
+		assertTrue(laurel.estaRegistrado(usuario));
+		assertTrue(usuario.esMiembro(Equipo.CALIDAD));
+		assertFalse(usuario.esMiembro(Equipo.OPERACIONES));
 
-		laurel.removeUsuario(usuario);
-		assertFalse(laurel.exist(usuario));
+		laurel.darBaja(usuario);
+		assertFalse(laurel.estaRegistrado(usuario));
 	}
 }
