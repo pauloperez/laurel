@@ -18,6 +18,17 @@ public class Proyecto {
 		return nombre;
 	}
 
+	public Usuario getLider() {
+		return lider;
+	}
+
+	public boolean esLider(final Usuario usuario) {
+		boolean esLider = false;
+		if (lider != null & usuario != null)
+			esLider = lider.equals(usuario);
+		return esLider;
+	}
+
 	public java.util.Collection<TipoItem> getTipoItems() {
 		return tipoItems;
 	}
