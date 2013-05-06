@@ -58,4 +58,12 @@ public class Item {
 		return creacion;
 	}
 
+	public EstadoItem verEstadoActual() {
+		return camino.peek();
+	}
+
+	public void pasarA(final EstadoItem estadoSiguiente) {
+		if (tipo.puedeRealizarSecuencia(verEstadoActual(), estadoSiguiente))
+			camino.push(estadoSiguiente);
+	}
 }
