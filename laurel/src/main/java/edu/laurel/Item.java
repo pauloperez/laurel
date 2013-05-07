@@ -13,9 +13,17 @@ public class Item {
 	public Item(final TipoItem tipo, final Prioridad prioridad) {
 		this.prioridad = prioridad;
 		this.tipo = tipo;
-		this.creacion = new Date();
+		creacion = new Date();
 		camino = new java.util.ArrayDeque<EstadoItem>();
+	}
 
+	/**
+	 * Construye el Item con el tipoItem parametrizado y con Prioridad Medio
+	 * 
+	 * @param tipoItem
+	 */
+	public Item(final TipoItem tipoItem) {
+		this(tipoItem, Prioridad.MEDIA);
 	}
 
 	public Prioridad getPrioridad() {

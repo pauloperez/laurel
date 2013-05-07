@@ -28,7 +28,6 @@ public class TipoItemTest {
 		final EstadoItem validacion = new EstadoItem("Validacion");
 
 		tipoItem.agregarSecuencia(creado, desarrollo);
-
 		tipoItem.agregarSecuencia(desarrollo, validacion);
 		tipoItem.agregarSecuencia(validacion, new EstadoItem("Terminado"));
 		tipoItem.agregarSecuencia(validacion, desarrollo);

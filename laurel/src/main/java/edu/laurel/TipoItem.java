@@ -18,16 +18,15 @@ public class TipoItem {
 	}
 
 	public void agregarSecuencia(final EstadoItem inicio, final EstadoItem fin) {
+		if (cicloDeVida.isEmpty())
+			cicloDeVida.add(new SecuenciaEstado(null, inicio));
 		cicloDeVida.add(new SecuenciaEstado(inicio, fin));
 	}
 
 	public boolean tieneConfigurado(final EstadoItem estado) {
-		for (final SecuenciaEstado secuenciaEstado : cicloDeVida) {
-			if (secuenciaEstado.getInicio().equals(estado))
-				return true;
+		for (final SecuenciaEstado secuenciaEstado : cicloDeVida)
 			if (secuenciaEstado.getFin().equals(estado))
 				return true;
-		}
 		return false;
 	}
 
