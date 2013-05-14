@@ -2,6 +2,9 @@ package edu.laurel;
 
 import java.util.Date;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 public class Item {
 	private Prioridad prioridad;
 	private TipoItem tipo;
@@ -73,5 +76,29 @@ public class Item {
 	public void pasarA(final EstadoItem estadoSiguiente) {
 		if (tipo.puedeRealizarSecuencia(verEstadoActual(), estadoSiguiente))
 			camino.push(estadoSiguiente);
+	}
+
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder(17, 3). // two randomly chosen prime numbers
+				// if deriving: appendSuper(super.hashCode()).
+				append(creacion).append(prioridad).append(tipo).toHashCode();
+	}
+
+	@Override
+	public boolean equals(final Object obj) {
+		if (obj == null)
+			return false;
+		if (obj == this)
+			return true;
+		if (!(obj instanceof Item))
+			return false;
+
+		final Item rhs = (Item) obj;
+		return new EqualsBuilder()
+				.
+				// if deriving: appendSuper(super.equals(obj)).
+				append(creacion, rhs.creacion).append(prioridad, rhs.prioridad)
+				.append(tipo, rhs.tipo).isEquals();
 	}
 }

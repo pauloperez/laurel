@@ -39,6 +39,10 @@ public class Proyecto {
 		return items;
 	}
 
+	public void darAltaItem(final Item item) {
+		items.add(item);
+	}
+
 	public java.util.Collection<Usuario> getMiembros() {
 		return miembros;
 	}
@@ -50,4 +54,5 @@ public class Proyecto {
 	public void desligar(final Usuario usuario) {
 		miembros.remove(usuario);
 	}
+
 }
