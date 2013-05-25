@@ -9,10 +9,14 @@ import org.junit.Test;
 public class ProyectoTest {
 	private Proyecto proyecto;
 	private Usuario lider;
+	private TipoItem bug, requirement, change;
 
 	@Before
 	public void setUp() throws Exception {
 		proyecto = new Proyecto("Parque-Siebel", lider);
+		bug = new TipoItem("Reporte de Bug");
+		requirement = new TipoItem("Requerimiento");
+		change = new TipoItem("Requerimiento");
 
 	}
 
@@ -24,11 +28,23 @@ public class ProyectoTest {
 	@Test
 	public void testAltaItem() {
 
-		final TipoItem tipoItem = new TipoItem("Reporte de Bug");
-		final Item item = new Item(tipoItem, Prioridad.BAJA);
-
+		final Item item = new Item(bug, Prioridad.BAJA);
 		proyecto.darAltaItem(item);
 
 		assertTrue(proyecto.getItems().contains(item));
+
+	}
+
+	@Test
+	public void testAltaTipoItem() {
+
+		proyecto.darAltaTipoItem(bug);
+		proyecto.darAltaTipoItem(requirement);
+		proyecto.darAltaTipoItem(change);
+
+		assertTrue(proyecto.getTipoItems().contains(bug));
+		assertTrue(proyecto.getTipoItems().contains(requirement));
+		assertTrue(proyecto.getTipoItems().contains(change));
+
 	}
 }

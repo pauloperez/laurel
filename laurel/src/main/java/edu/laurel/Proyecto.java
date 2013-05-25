@@ -43,6 +43,9 @@ public class Proyecto {
 		items.add(item);
 	}
 
+	public void darAltaTipoItem(final TipoItem tipoItem) {
+		tipoItems.add(tipoItem);
+	}
 	public java.util.Collection<Usuario> getMiembros() {
 		return miembros;
 	}
