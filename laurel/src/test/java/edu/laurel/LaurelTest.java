@@ -23,16 +23,17 @@ public class LaurelTest {
 
 	@Test
 	public void testAltaUsuario() {
-		final Usuario usuario = new Usuario("Usuario Prueba");
+		final String nombre = "Usuario Prueba";
+		final Usuario usuario = new Usuario(nombre);
 		usuario.asignar(Equipo.CALIDAD);
 
 		laurel.darAlta(usuario);
-		assertTrue(laurel.estaInscripto(usuario));
+		assertTrue(laurel.estaInscripto(nombre));
 		assertTrue(usuario.esMiembro(Equipo.CALIDAD));
 		assertFalse(usuario.esMiembro(Equipo.OPERACIONES));
 
 		laurel.darBaja(usuario);
-		assertFalse(laurel.estaInscripto(usuario));
+		assertFalse(laurel.estaInscripto(nombre));
 	}
 
 	@Test

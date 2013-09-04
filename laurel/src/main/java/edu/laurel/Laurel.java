@@ -1,9 +1,15 @@
 package edu.laurel;
 
+import javax.inject.Inject;
+
+import edu.laurel.repositorios.RepositorioUsuarios;
 
 public class Laurel {
-	private final java.util.Set<Usuario> usuarios;
+	private final java.util.Collection<Usuario> usuarios;
 	private final java.util.Collection<Proyecto> proyectos;
+
+	@Inject
+	private RepositorioUsuarios repositorioUsuarios;
 
 	public Laurel() {
 		usuarios = new java.util.HashSet<Usuario>();
@@ -26,12 +32,12 @@ public class Laurel {
 		proyectos.remove(proyecto);
 	}
 
-	public java.util.Set<Usuario> getUsuarios() {
+	public java.util.Collection<Usuario> getUsuarios() {
 		return usuarios;
 	}
 
-	public boolean estaInscripto(final Usuario usuario) {
-		return usuarios.contains(usuario);
+	public boolean estaInscripto(final String nombreUsuario) {
+		return repositorioUsuarios.existeConNombre(nombreUsuario);
 	}
 
 	public void darAlta(final Usuario  usuario) {
