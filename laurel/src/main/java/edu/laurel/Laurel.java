@@ -9,7 +9,7 @@ public class Laurel {
 	private final java.util.Collection<Proyecto> proyectos;
 
 	@Inject
-	private RepositorioUsuarios repositorioUsuarios;
+	RepositorioUsuarios repositorioUsuarios;
 
 	public Laurel() {
 		usuarios = new java.util.HashSet<Usuario>();
@@ -37,7 +37,7 @@ public class Laurel {
 	}
 
 	public boolean estaInscripto(final String nombreUsuario) {
-		return repositorioUsuarios.existeConNombre(nombreUsuario);
+		return repositorioUsuarios.existeConNombre(usuarios, nombreUsuario);
 	}
 
 	public void darAlta(final Usuario  usuario) {

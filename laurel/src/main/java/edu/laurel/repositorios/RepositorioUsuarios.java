@@ -1,5 +1,6 @@
 package edu.laurel.repositorios;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,10 +8,11 @@ import edu.laurel.Usuario;
 
 public class RepositorioUsuarios extends Repositorio<Usuario> {
 
-	public boolean existeConNombre(final String nombreUsuario) {
-		Map<String, String> parametros = new HashMap<String, String>();
+	public boolean existeConNombre(final Collection<Usuario> usuarios,
+			final String nombreUsuario) {
+		final Map<String, String> parametros = new HashMap<String, String>();
 		parametros.put("nombre", nombreUsuario);
-		return super.existe(parametros);
+		return super.existe(usuarios, parametros);
 	}
 
 }
