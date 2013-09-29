@@ -11,5 +11,5 @@
 	language governing permissions and limitations under the License. -->
 <tomcat-users>
 	<role rolename="manager-gui" />
-	<user username="admin" password="s3cret" roles="manager-gui" />
+	<user username="admin" password="" roles="manager-gui" />
 </tomcat-users>

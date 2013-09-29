@@ -32,26 +32,37 @@
 			<version>3.1</version>
 		</dependency>
 		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-web-api</artifactId>
-			<version>6.0</version>
+			<groupId>org.apache.openejb</groupId>
+			<artifactId>tomee-webapp</artifactId>
+			<version>1.5.2</version>
+			<scope>runtime</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.openejb</groupId>
+					<artifactId>javaee-api</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>org.primefaces</groupId>
-			<artifactId>primefaces</artifactId>
-			<version>3.5</version>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-jpa_2.0_spec</artifactId>
+			<version>1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.0.1</version>
-			<scope>runtime</scope>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.openejb</groupId>
-			<artifactId>tomee-webapp</artifactId>
-			<version>1.5.2</version>
-			<scope>runtime</scope>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>3.5</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -67,9 +78,14 @@
 			</plugin>
 
 			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+			</plugin>
+
+			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.0</version>
+				<version>2.1</version>
 				<executions>
 					<execution>
 						<id>tomcat-run</id>
@@ -79,8 +95,6 @@
 						<phase>pre-integration-test</phase>
 						<configuration>
 							<fork>true</fork>
-							<path>/foo</path>
-							<serverXml>src/main/tomcatconf/server.xml</serverXml>
 							<tomcatUsers>src/main/tomcatconf/tomcat-users.xml</tomcatUsers>
 						</configuration>
 					</execution>
@@ -90,11 +104,6 @@
 						<goals>
 							<goal>deploy</goal>
 						</goals>
-						<configuration>
-							<update>true</update>
-							<username>admin</username>
-							<password>s3cret</password>
-						</configuration>
 					</execution>
 					<execution>
 						<id>tomcat-shutdown</id>
@@ -105,9 +114,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
 		</plugins>
-
 	</build>
-
 </project>
