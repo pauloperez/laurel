@@ -35,23 +35,7 @@
 			<groupId>org.apache.openejb</groupId>
 			<artifactId>tomee-webapp</artifactId>
 			<version>1.5.2</version>
-			<scope>runtime</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.apache.openejb</groupId>
-					<artifactId>javaee-api</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>javax.enterprise</groupId>
-			<artifactId>cdi-api</artifactId>
-			<version>1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.geronimo.specs</groupId>
-			<artifactId>geronimo-jpa_2.0_spec</artifactId>
-			<version>1.1</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -83,36 +67,18 @@
 			</plugin>
 
 			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.1</version>
-				<executions>
-					<execution>
-						<id>tomcat-run</id>
-						<goals>
-							<goal>run-war-only</goal>
-						</goals>
-						<phase>pre-integration-test</phase>
-						<configuration>
-							<fork>true</fork>
-							<tomcatUsers>src/main/tomcatconf/tomcat-users.xml</tomcatUsers>
-						</configuration>
-					</execution>
-					<execution>
-						<id>tomcat-deploy</id>
-						<phase>integration-test</phase>
-						<goals>
-							<goal>deploy</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>tomcat-shutdown</id>
-						<phase>post-integration-test</phase>
-						<goals>
-							<goal>shutdown</goal>
-						</goals>
-					</execution>
-				</executions>
+			  <groupId>org.apache.openejb.maven</groupId>
+			  <artifactId>tomee-maven-plugin</artifactId>
+			  <version>1.5.2</version>
+			  <configuration>
+			    <tomeeVersion>1.5.2</tomeeVersion>
+			    <synchronization>
+			      <extensions>
+					<extension>.class</extension> <!-- if you want to update each time you build with mvn compile -->
+			      </extensions>
+			    </synchronization>
+			    <reloadOnUpdate>true</reloadOnUpdate>
+			  </configuration>
 			</plugin>
 		</plugins>
 	</build>
