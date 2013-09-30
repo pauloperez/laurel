@@ -78,8 +78,12 @@
 			</plugin>
 
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.3</version>
+				 <configuration>
+                    <containerConfigXML>src/main/resources/META-INF/context.xml</containerConfigXML>
+                </configuration>
 			</plugin>
 
 			<plugin>
