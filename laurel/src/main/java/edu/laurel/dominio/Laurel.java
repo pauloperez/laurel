@@ -1,12 +1,15 @@
-package edu.laurel;
+package edu.laurel.dominio;
 
 import javax.inject.Inject;
 
+import edu.laurel.Proyecto;
+import edu.laurel.Usuario;
 import edu.laurel.repositorios.RepositorioUsuarios;
 
 public class Laurel {
-	private final java.util.Collection<Usuario> usuarios;
-	private final java.util.Collection<Proyecto> proyectos;
+	private int oid;
+	private java.util.Collection<Usuario> usuarios;
+	private java.util.Collection<Proyecto> proyectos;
 
 	@Inject
 	RepositorioUsuarios repositorioUsuarios;
@@ -14,6 +17,14 @@ public class Laurel {
 	public Laurel() {
 		usuarios = new java.util.HashSet<Usuario>();
 		proyectos = new java.util.ArrayList<Proyecto>(5);
+	}
+
+	public int getOid() {
+		return oid;
+	}
+
+	public void setOid(int oid) {
+		this.oid = oid;
 	}
 
 	public java.util.Collection<Proyecto> getProyectos() {

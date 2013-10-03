@@ -5,15 +5,13 @@
 	<artifactId>laurel</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<repositories>
-		<repository>
-			<id>prime-repo</id>
-			<name>PrimeFaces Maven Repository</name>
-			<url>http://repository.primefaces.org</url>
-			<layout>default</layout>
-		</repository>
-	</repositories>
+
 	<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.5</version>
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -33,14 +31,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.openejb</groupId>
-			<artifactId>tomee-webapp</artifactId>
-			<version>1.5.2</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
+			<artifactId>javaee-api</artifactId>
+			<version>6.0-4</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -48,8 +40,10 @@
 			<artifactId>primefaces</artifactId>
 			<version>3.5</version>
 		</dependency>
+
 	</dependencies>
 	<build>
+		<finalName>laurel</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -67,19 +61,69 @@
 			</plugin>
 
 			<plugin>
-			  <groupId>org.apache.openejb.maven</groupId>
-			  <artifactId>tomee-maven-plugin</artifactId>
-			  <version>1.5.2</version>
-			  <configuration>
-			    <tomeeVersion>1.5.2</tomeeVersion>
-			    <synchronization>
-			      <extensions>
-					<extension>.class</extension> <!-- if you want to update each time you build with mvn compile -->
-			      </extensions>
-			    </synchronization>
-			    <reloadOnUpdate>true</reloadOnUpdate>
-			  </configuration>
+				<groupId>org.apache.openejb.maven</groupId>
+				<artifactId>tomee-maven-plugin</artifactId>
+				<version>1.5.2</version>
+				<configuration>
+					<removeTomeeWebapp>true</removeTomeeWebapp>
+					<tomeeVersion>1.5.2</tomeeVersion>
+					<synchronization>
+						<extensions>
+							<extension>.class</extension> <!-- if you want to update each time you build with mvn compile -->
+						</extensions>
+					</synchronization>
+					<reloadOnUpdate>true</reloadOnUpdate>
+					<simpleLog>true</simpleLog>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.openjpa</groupId>
+				<artifactId>openjpa-maven-plugin</artifactId>
+				<version>2.2.2</version>
+				<configuration>
+				<includes>**/dominio/*.class</includes>
+					<addDefaultConstructor>true</addDefaultConstructor>
+					<enforcePropertyRestrictions>true</enforcePropertyRestrictions>
+				</configuration>
+				<executions>
+					<execution>
+						<id>enhancer</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>enhance</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.openjpa</groupId>
+						<artifactId>openjpa</artifactId>
+						<!-- set the version to be the same as the level in your runtime -->
+						<version>2.2.2</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+
+		<repository>
+			<id>apache-snapshot</id>
+			<name>Apache Snapshot Repository</name>
+			<url>https://repository.apache.org/content/groups/snapshots/</url>
+		</repository>
+	</repositories>
+
 </project>

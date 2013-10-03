@@ -1,4 +1,4 @@
-package edu.laurel;
+package edu.laurel.dominio;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -9,6 +9,10 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import edu.laurel.Equipo;
+import edu.laurel.Proyecto;
+import edu.laurel.Usuario;
+import edu.laurel.dominio.Laurel;
 import edu.laurel.repositorios.RepositorioUsuarios;
 
 @Ignore
