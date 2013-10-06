@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Alta de usuarios</title>
+
+</h:head>
+
+<h:body>
+
+	<p:tabMenu activeIndex="0">
+		<p:menuitem value="Menu inicial" url="/MenuInicial.xhtml" icon="ui-icon-star" />
+		<p:menuitem value="Demos" url="/ui/tabMenuDemos.jsf"
+			icon="ui-icon-search" />
+		<p:menuitem value="Documentation" url="/ui/tabMenuDocumentation.jsf"
+			icon="ui-icon-document" />
+		<p:menuitem value="Support" url="/ui/tabMenuSupport.jsf"
+			icon="ui-icon-wrench" />
+		<p:menuitem value="Social" url="/ui/tabMenuSocial.jsf"
+			icon="ui-icon-person" />
+	</p:tabMenu>
+	<p:panelGrid columns="2">
+		<f:facet name="header">  
+        Alta de usuarios  
+    </f:facet>
+
+		<h:outputLabel for="usuario" value="Usuario *" />
+		<p:inputText id="usuario" value="" label="Usuario" />
+
+		<h:outputLabel for="contraseña" value="Contraseña *" />
+		<p:inputText id="contraseña" value="" required="true"
+			label="Contraseña" />
+
+		<f:facet name="footer">
+			<p:commandButton type="button" value="Guardar" icon="ui-icon-check"
+				style="margin:0" />
+		</f:facet>
+	</p:panelGrid>
+
+</h:body>
+</html>
