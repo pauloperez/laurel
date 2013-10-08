@@ -9,9 +9,7 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import edu.laurel.Equipo;
-import edu.laurel.Proyecto;
-import edu.laurel.Usuario;
+import edu.laurel.constantes.Equipo;
 import edu.laurel.dominio.Laurel;
 import edu.laurel.repositorios.RepositorioUsuarios;
 
