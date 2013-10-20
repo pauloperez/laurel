@@ -3,7 +3,7 @@ package edu.laurel.presentacion;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import edu.laurel.servicios.ServiciosUsuario;
+import edu.laurel.aplicacion.ServiciosUsuario;
 
 @Named
 public class InterfazUsuarios {

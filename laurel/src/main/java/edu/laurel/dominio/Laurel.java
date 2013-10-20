@@ -4,25 +4,17 @@ import javax.inject.Inject;
 
 import edu.laurel.repositorios.RepositorioUsuarios;
 
-public class Laurel {
-    private int oid;
-    private java.util.Collection<Usuario> usuarios;
-    private java.util.Collection<Proyecto> proyectos;
+public class Laurel extends Base {
+    private final java.util.Collection<Usuario> usuarios;
+    private final java.util.Collection<Proyecto> proyectos;
 
     @Inject
     RepositorioUsuarios repositorioUsuarios;
 
     public Laurel() {
+	super();
 	usuarios = new java.util.HashSet<Usuario>();
 	proyectos = new java.util.ArrayList<Proyecto>(5);
-    }
-
-    public int getOid() {
-	return oid;
-    }
-
-    public void setOid(int oid) {
-	this.oid = oid;
     }
 
     public java.util.Collection<Proyecto> getProyectos() {

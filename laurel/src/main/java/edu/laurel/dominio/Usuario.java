@@ -2,11 +2,12 @@ package edu.laurel.dominio;
 
 import edu.laurel.constantes.Equipo;
 
-public class Usuario {
+public class Usuario extends Base {
     private final String nombre;
     private final java.util.Set<Equipo> equipos;
 
     public Usuario(final String nombre) {
+	super();
 	this.nombre = nombre;
 	equipos = new java.util.HashSet<Equipo>(5);
     }

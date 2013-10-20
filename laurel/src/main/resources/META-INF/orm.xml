@@ -7,11 +7,21 @@
 			<cascade-persist />
 		</persistence-unit-defaults>
 	</persistence-unit-metadata>
-	<entity class="edu.laurel.dominio.Laurel" name="Laurel">
+	<mapped-superclass class="edu.laurel.dominio.Base">
 		<attributes>
 			<id name="oid">
-				<generated-value strategy="AUTO"/>
+				<generated-value strategy="AUTO" />
 			</id>
+		</attributes>
+	</mapped-superclass>
+	<entity class="edu.laurel.dominio.Laurel" name="Laurel">
+		<attributes>
+			<one-to-many name="usuarios"/>
+		</attributes>
+	</entity>
+	<entity class="edu.laurel.dominio.Usuario" name="Usuario">
+		<attributes>
+			<element-collection name="equipos" />
 		</attributes>
 	</entity>
 </entity-mappings>
