@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import edu.laurel.Usuario;
+import edu.laurel.dominio.Usuario;
 
 public class RepositorioUsuarios extends Repositorio<Usuario> {
 
