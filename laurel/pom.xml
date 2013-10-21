@@ -17,8 +17,8 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<scope>test</scope>
 			<version>4.8.1</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
@@ -32,16 +32,9 @@
 			<version>3.1</version>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.openejb</groupId>
-			<artifactId>tomee-webapp</artifactId>
-			<version>1.5.2</version>
-			<scope>runtime</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.apache.openejb</groupId>
-					<artifactId>javaee-api</artifactId>
-				</exclusion>
-			</exclusions>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>3.5</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.enterprise</groupId>
@@ -60,9 +53,26 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.primefaces</groupId>
-			<artifactId>primefaces</artifactId>
-			<version>3.5</version>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet</artifactId>
+			<version>2.0.4.Final</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-web-api</artifactId>
+			<version>6.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.myfaces.core</groupId>
+			<artifactId>myfaces-api</artifactId>
+			<version>2.1.12</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.myfaces.core</groupId>
+			<artifactId>myfaces-impl</artifactId>
+			<version>2.1.12</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -81,42 +91,22 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.3</version>
-				 <configuration>
-                    <containerConfigXML>src/main/resources/META-INF/context.xml</containerConfigXML>
-                </configuration>
+				<configuration>
+					<containerConfigXML>src/main/resources/META-INF/context.xml</containerConfigXML>
+				</configuration>
 			</plugin>
 
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.1</version>
-				<executions>
-					<execution>
-						<id>tomcat-run</id>
-						<goals>
-							<goal>run-war-only</goal>
-						</goals>
-						<phase>pre-integration-test</phase>
-						<configuration>
-							<fork>true</fork>
-							<tomcatUsers>src/main/tomcatconf/tomcat-users.xml</tomcatUsers>
-						</configuration>
-					</execution>
-					<execution>
-						<id>tomcat-deploy</id>
-						<phase>integration-test</phase>
-						<goals>
-							<goal>deploy</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>tomcat-shutdown</id>
-						<phase>post-integration-test</phase>
-						<goals>
-							<goal>shutdown</goal>
-						</goals>
-					</execution>
-				</executions>
+				<configuration>
+					<server>devtomcat</server>
+					<username>tomcat</username>
+					<password>password</password>
+					<contextReloadable>true</contextReloadable>
+					<tomcatUsers>src/main/tomcatconf/tomcat-users.xml</tomcatUsers>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
