@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Menu de Laurel</title>
+
+</h:head>
+
+<h:body>
+	<h:form>
+
+		<p:growl id="messages" autoUpdate="true" />
+
+		<p:panelMenu style="width:210px">
+
+			<p:submenu label="Menu de Laurel">
+				<p:submenu label="Gestion" icon="ui-icon-extlink">
+					<p:submenu label="Usuarios" icon="ui-icon-heart">
+						<p:menuitem value="Alta" url="/usuarios/alta.xhtml"
+							icon="ui-icon-home" />
+						<p:menuitem value="Baja" url="/usuarios/baja.xhtml"
+							icon="ui-icon-document" />
+					</p:submenu>
+				</p:submenu>
+			</p:submenu>
+		</p:panelMenu>
+
+	</h:form>
+
+
+</h:body>
+</html>
+
+
+

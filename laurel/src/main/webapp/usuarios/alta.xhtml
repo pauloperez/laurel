@@ -1,43 +1,61 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	template="../templates/template.xhtml">
 
-<h:head>
-	<title>Alta de usuarios</title>
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
+		<h:head>
+			<title>Alta de Uuarios</title>
 
-</h:head>
+		</h:head>
 
-<h:body>
-	<h:form>
-		<p:layout style="min-width:400px;min-height:200px;" id="layout">
-			<p:layoutUnit position="west" resizable="true" size="100"
-				minSize="40" maxSize="200">  
-        West  
-    </p:layoutUnit>
+		<h:body>
+			<h:form id="form">
 
-			<p:layoutUnit position="center">
-				<p:panelGrid columns="2">
-					<f:facet name="header">  
-        Alta de usuarios  
-    </f:facet>
+				<p:panel id="panel" header="Alta de usuarios"
+					style="margin-bottom:10px;">
+					<p:messages id="messages" />
+					<h:panelGrid columns="3">
+						<h:outputLabel for="nombre" value="Nombre *" />
+						<p:inputText id="nombre" value="#{interfazUsuarios.nombreUsuario}"
+							required="true" label="Nombre">
+							<f:validateLength minimum="2" />
+						</p:inputText>
+						<p:message for="nombre" />
 
-					<h:outputLabel for="usuario" value="Usuario *" />
-					<p:inputText id="usuario" value="#{interfazUsuarios.nombreUsuario}"
-						label="Usuario" />
+						<h:outputLabel for="usuario" value="Usuario *" />
+						<p:inputText id="usuario"
+							value="#{interfazUsuarios.nombreUsuario}" required="true"
+							label="Usuario">
+							<f:validateLength minimum="2" />
+						</p:inputText>
+						<p:message for="usuario" />
+					</h:panelGrid>
+				</p:panel>
 
-					<h:outputLabel for="contraseña" value="Contraseña *" />
-					<p:inputText id="contraseña" value="" required="true"
-						label="Contraseña" />
+				<p:commandButton value="Dar alta" update="panel,display" id="ajax"
+					actionListener="#{interfazUsuarios.alta}"
+					styleClass="ui-priority-primary" />
 
-					<f:facet name="footer">
-						<p:commandButton value="Guardar" icon="ui-icon-check" ajax="false"
-							style="margin:0" action="#{interfazUsuarios.alta}" />
-					</f:facet>
-				</p:panelGrid>
-			</p:layoutUnit>
-		</p:layout>
-	</h:form>
-</h:body>
-</html>
+				<p:panel id="display" header="Informacion de "
+					style="margin-top:10px;">
+					<h:panelGrid columns="2">
+						<h:outputText value="Usuario " />
+						<h:outputText value="#{interfazUsuarios.nombreUsuario}" />
+						<p:button value="Configurar usuario" outcome="baja.xhtml">
+							<f:param name="nombreUsuario"
+								value="#{interfazUsuarios.nombreUsuario}" />
+						</p:button>
+					</h:panelGrid>
+				</p:panel>
+
+			</h:form>
+
+		</h:body>
+	</ui:define>
+</ui:composition>
+

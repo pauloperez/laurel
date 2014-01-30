@@ -7,55 +7,71 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <f:view contentType="text/html" id="fview">
-
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Page template with PrimeFaces</title>
-	<ui:debug />
-	<f:metadata>
-		<ui:insert name="metadata" />
-	</f:metadata>
-
 	<h:head>
-				<p:ajaxStatus onstart="statusDialog.show();"
-			onsuccess="statusDialog.hide();" />
+		<f:facet name="first">
+			<meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
 
-		<p:layout fullPage="true" resizeTitle="resize"
-			style="background-color:#FFFFFF;">
-			<p:layoutUnit position="north" size="68" id="north">
+		</f:facet>
+
+		<link type="text/css" rel="stylesheet"
+			href="#{request.contextPath}/css/default.css" />
+		<link type="text/css" rel="stylesheet"
+			href="#{request.contextPath}/css/syntaxhighlighter/syntaxhighlighter.css" />
+
+		<style type="text/css">
+.ui-layout-north {
+	z-index: 20 !important;
+	overflow: visible !important;;
+}
+
+.ui-layout-north .ui-layout-unit-content {
+	overflow: visible !important;
+}
+
+.star {
+	background-image: url('images/Millos.png')  !important;
+	top: .1em !important; 
+    left: .1em !important; 
+	width: 341px !important;
+	height: 100px !important;
+
+}
+</style>
+	</h:head>
+
+
+	<h:body>
+
+		<p:layout fullPage="true">
+
+			<p:layoutUnit id="top" position="north" size="85">
 				<ui:include src="header.xhtml" />
+				<br />
+				<br />
 			</p:layoutUnit>
 
-			<p:layoutUnit position="west" id="west" resizable="false"
-				header="#{msg['menu.title']}" style="height:580px;overflow:hidden;"
-				size="225">
-				<ui:include src="header.xhtml" />
-			</p:layoutUnit>
-
-			<p:layoutUnit styleClass="layoutUnitCenter" position="center">
-				<h:form id="mainForm">
-					<p:messages autoUpdate="true" id="msgs" showDetail="true"
-						showSummary="true" />
-					<ui:insert name="content" />
-				</h:form>
-			</p:layoutUnit>
-
-			<p:layoutUnit position="east" size="0"
-				style="width:0px; display:none;" id="east">
-			</p:layoutUnit>
-
-			<p:layoutUnit position="south" resizable="true" id="south">
+			<p:layoutUnit id="bottom" position="south" size="75">
+				<br />
 				<ui:include src="footer.xhtml" />
 			</p:layoutUnit>
+
+			<p:layoutUnit id="center" position="center">
+			
+				<ui:insert name="content" />
+		
+
+			</p:layoutUnit>
+
 		</p:layout>
 
-		<p:dialog modal="true" widgetVar="statusDialog" showHeader="false"
-			draggable="false" closable="false" resizable="false" visible="false"
-			position="center" maximizable="false" minimizable="false">
-			<p:graphicImage value="#{resource['images/ajax-loader.gif']}" />
-		</p:dialog>	</h:head>
+		<p:dialog header="Basic Dialog" widgetVar="dlg" modal="true">
+			<h:outputText value="Resistance to PrimeFaces is futile!" />
+		</p:dialog>
 
-	<h:body onload="statusDialog.hide();">
 	</h:body>
+
+
 
 </f:view>
 </html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+
+</h:head>
+
+<h:body>
+<h:form id="form">
+
+                <p:panel id="panel" header="Alta de usuarios" style="margin-bottom:10px;">
+                    <p:messages id="messages" />
+                    <h:panelGrid columns="3">
+                              <h:outputLabel for="nombre" value="Nombre *" />
+                        <p:inputText id="nombre" value="#{interfazUsuarios.nombreUsuario}"
+                            required="true" label="Nombre">
+                            <f:validateLength minimum="2" />
+                        </p:inputText>
+                        <p:message for="nombre" />
+
+                        </h:panelGrid>
+                </p:panel>
+
+                <p:commandButton value="Dar alta" update="panel,display"
+                    id="ajax" actionListener="#{interfazUsuarios.alta}"
+                    styleClass="ui-priority-primary" />
+
+                <p:panel id="display" header="Informacion de usuario" style="margin-top:10px;">
+                    <h:panelGrid columns="2">
+                        <h:outputText value="Nombre: " />
+                        <h:outputText value="#{interfazUsuarios.nombreUsuario}" />
+
+                    </h:panelGrid>
+                </p:panel>
+
+            </h:form>
+
+
+</h:body>
+</html>
