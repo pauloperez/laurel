@@ -13,7 +13,7 @@ public class ServiciosUsuario {
     private EntityManager entityManager;
 
     public void alta(final Usuario usuario) {
-	entityManager.persist(usuario);
+	// entityManager.persist(usuario);
     }
 
 }

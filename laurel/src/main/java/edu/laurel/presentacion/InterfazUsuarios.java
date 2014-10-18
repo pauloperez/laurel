@@ -1,7 +1,9 @@
 package edu.laurel.presentacion;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -19,12 +21,15 @@ public class InterfazUsuarios {
 
     @PostConstruct
     public void inicio() {
-	nombreUsuario = "Un nombre culaquiera";
+	// nombreUsuario = "Un nombre culaquiera";
     }
 
     public void alta() {
 	final Usuario usuario = new Usuario(nombreUsuario);
 	serviciosUsuario.alta(usuario);
+	FacesContext.getCurrentInstance().addMessage(null,
+		new FacesMessage("Welcome " + usuario + "!"));
+	System.out.println("welcome to you");
     }
 
     public String getNombreUsuario() {
