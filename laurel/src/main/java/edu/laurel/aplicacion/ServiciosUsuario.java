@@ -1,13 +1,21 @@
 package edu.laurel.aplicacion;
 
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.inject.Inject;
 
-@Stateless
+import org.apache.deltaspike.jpa.api.transaction.Transactional;
+
+import edu.laurel.dominio.Laurel;
+import edu.laurel.dominio.Usuario;
+import edu.laurel.repositorios.Raiz;
+
 public class ServiciosUsuario {
 
-    @PersistenceContext(unitName = "laurel-pu")
-    private EntityManager entityManager;
+	@Inject
+	@Raiz
+	private Laurel laurel;
 
+	@Transactional
+	public void alta(final Usuario usuario) {
+		laurel.darAlta(usuario);
+	}
 }

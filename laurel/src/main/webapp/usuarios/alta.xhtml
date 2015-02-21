@@ -1,41 +1,33 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
-
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:h="http://java.sun.com/jsf/html" 
+    xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+>
 <h:head>
 	<title>Alta de usuarios</title>
-
 </h:head>
-
 <h:body>
-
-<p:layout style="min-width:400px;min-height:200px;" id="layout">  
-    <p:layoutUnit position="west" resizable="true" size="100" minSize="40" maxSize="200">  
-        West  
-    </p:layoutUnit>  
-  
-    <p:layoutUnit position="center">  
-        <p:panelGrid columns="2">
-						<f:facet name="header">  
-        Alta de usuarios  
-    </f:facet>
-
-						<h:outputLabel for="usuario" value="Usuario *" />
-						<p:inputText id="usuario" value="" label="Usuario" />
-
-						<h:outputLabel for="contraseña" value="Contraseña *" />
-						<p:inputText id="contraseña" value="" required="true"
-							label="Contraseña" />
-
-						<f:facet name="footer">
-							<p:commandButton type="button" value="Guardar"
-								icon="ui-icon-check" style="margin:0" />
-						</f:facet>
-					</p:panelGrid>
-    </p:layoutUnit>  
-</p:layout>  
-
+    <h:form>
+	<p:layout style="min-width:400px;min-height:200px;" id="layout">
+		<p:layoutUnit position="west" resizable="true" size="100" minSize="40" maxSize="200">  
+            West  
+        </p:layoutUnit>
+		<p:layoutUnit position="center">
+			<p:panelGrid columns="2">
+				<f:facet name="header">Alta de usuarios</f:facet>
+				<h:outputLabel for="usuario" value="Usuario *" />
+				<p:inputText id="usuario" value="#{interfazUsuarios.nombreUsuario}" label="Usuario" />
+				<h:outputLabel for="contraseña" value="Contraseña *" />
+				<p:inputText id="contraseña" value="" required="true" label="Contraseña" />
+				<f:facet name="footer">
+					<p:commandButton value="Guardar" icon="ui-icon-check" ajax="false" style="margin:0"
+						action="#{interfazUsuarios.alta}" id="altaUsuario"
+					/>
+				</f:facet>
+			</p:panelGrid>
+		</p:layoutUnit>
+	</p:layout>
+	</h:form>
 </h:body>
 </html>

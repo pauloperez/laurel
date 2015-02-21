@@ -12,8 +12,11 @@ public class Repositorio<T> {
 	@Inject
 	EstrategaRepositorio estrategaRepositorio;
 
-	public boolean existe(final Collection<T> coleccion,
-			final Map<String, ?> parametros) {
+	public T encontrar(final Class<T> clase, final int oid) {
+		return estrategaRepositorio.encontrar(clase, oid);
+	}
+
+	public boolean existe(final Collection<T> coleccion, final Map<String, ?> parametros) {
 		return estrategaRepositorio.existe(coleccion, parametros);
 	}
 }

@@ -1,19 +1,24 @@
 package edu.laurel.dominio;
 
-public class Proyecto {
-    private final String nombre;
-    private final java.util.Collection<Item> items;
-    private final java.util.Collection<TipoItem> tipoItems;
+public class Proyecto extends Base {
+    private String nombre;
+    private java.util.Collection<Item> items;
+    private java.util.Collection<TipoItem> tipoItems;
 
-    private final Usuario lider;
-    private final java.util.Collection<Usuario> miembros;
+    private Usuario lider;
+    private java.util.Collection<Usuario> miembros;
+
+    protected Proyecto() {
+	super();
+	items = new java.util.ArrayList<Item>();
+	tipoItems = new java.util.HashSet<TipoItem>();
+	miembros = new java.util.ArrayList<Usuario>();
+    }
 
     public Proyecto(final String nombre, final Usuario lider) {
+	this();
 	this.nombre = nombre;
 	this.lider = lider;
-	items = new java.util.ArrayList<Item>();
-	miembros = new java.util.ArrayList<Usuario>();
-	tipoItems = new java.util.HashSet<TipoItem>();
     }
 
     public String getNombre() {

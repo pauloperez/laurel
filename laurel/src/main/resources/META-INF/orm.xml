@@ -2,11 +2,6 @@
 <entity-mappings version="2.0"
 	xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd">
-	<persistence-unit-metadata>
-		<persistence-unit-defaults>
-			<cascade-persist />
-		</persistence-unit-defaults>
-	</persistence-unit-metadata>
 	<mapped-superclass class="edu.laurel.dominio.Base">
 		<attributes>
 			<id name="oid">
@@ -16,12 +11,40 @@
 	</mapped-superclass>
 	<entity class="edu.laurel.dominio.Laurel" name="Laurel">
 		<attributes>
-			<one-to-many name="usuarios"/>
+			<one-to-many name="usuarios">
+				<cascade>
+					<cascade-all />
+				</cascade>
+			</one-to-many>
+			<one-to-many name="proyectos">
+				<cascade>
+					<cascade-all />
+				</cascade>
+			</one-to-many>
 		</attributes>
 	</entity>
 	<entity class="edu.laurel.dominio.Usuario" name="Usuario">
 		<attributes>
 			<element-collection name="equipos" />
+		</attributes>
+	</entity>
+	<entity class="edu.laurel.dominio.Proyecto" name="Proyecto">
+		<attributes>
+			<one-to-many name="items">
+				<cascade>
+					<cascade-all />
+				</cascade>
+			</one-to-many>
+			<one-to-many name="tipoItems">
+				<cascade>
+					<cascade-all />
+				</cascade>
+			</one-to-many>
+			<one-to-many name="miembros">
+				<cascade>
+					<cascade-all />
+				</cascade>
+			</one-to-many>
 		</attributes>
 	</entity>
 </entity-mappings>
