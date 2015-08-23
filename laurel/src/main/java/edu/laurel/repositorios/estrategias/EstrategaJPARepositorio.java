@@ -13,28 +13,29 @@ import javax.persistence.criteria.Root;
 
 import edu.laurel.dominio.Laurel;
 
-public class EstrategaJPARepositorio extends EstrategaRepositorio {
+public class EstrategaJPARepositorio<T> extends EstrategaRepositorio<T> {
+
+	private static final long serialVersionUID = 5665161464546963089L;
 
 	@Inject
 	private EntityManager entityManager;
 
 	@Override
-	public <T> T encontrar(final Class<T> clase, final int oid) {
+	public T encontrar(final Class<T> clase, final int oid) {
 		return entityManager.find(clase, oid);
 	}
 
 	@Override
-	public <T> boolean existe(final Collection<T> coleccion, final Map<String, ?> parametros) {
-		final Class<T> classT = null;
+	public boolean existe(final Collection<T> coleccion, final Class<T> clase, final Map<String, ?> parametros) {
 		boolean existe = false;
 		final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		final CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(classT);
-		final Root<T> t = criteriaQuery.from(classT);
+		final CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(clase);
+		final Root<T> t = criteriaQuery.from(clase);
 		final java.util.List<Predicate> predicates = new java.util.ArrayList<Predicate>();
 
 		for (final String nombreParametro : parametros.keySet())
 			predicates.add(criteriaBuilder.equal(t.get(nombreParametro), parametros.get(nombreParametro)));
-		criteriaQuery.where(predicates.toArray(new Predicate[] {}));
+		criteriaQuery.select(t).where(predicates.toArray(new Predicate[] {}));
 
 		final TypedQuery<T> query = entityManager.createQuery(criteriaQuery);
 		final java.util.List<T> results = query.getResultList();
@@ -50,5 +51,4 @@ public class EstrategaJPARepositorio extends EstrategaRepositorio {
 		entityManager.persist(raiz);
 		return raiz;
 	}
-
 }

@@ -8,22 +8,24 @@ import java.util.Map;
 import javax.enterprise.inject.Alternative;
 
 @Alternative
-public class EstrategaMockRepositorio extends EstrategaRepositorio {
+public class EstrategaMockRepositorio<T> extends EstrategaRepositorio<T> {
+
+	private static final long serialVersionUID = 5504391341707114240L;
 
 	@Override
-	public <T> T encontrar(final Class<T> clase, final int oid) {
+	public T encontrar(final Class<T> clase, final int oid) {
 		return null;
 	}
 
 	@Override
-	public <T> boolean existe(final Collection<T> coleccion, final Map<String, ?> parametros) {
+	public boolean existe(final Collection<T> coleccion, final Class<T> clase, final Map<String, ?> parametros) {
 		boolean existe = false;
 		final Iterator<T> iterador = coleccion.iterator();
 		while (iterador.hasNext()) {
 			final T t = iterador.next();
 			for (final String nombreParametro : parametros.keySet())
 				try {
-					final Field campo = t.getClass().getField(nombreParametro);
+					final Field campo = clase.getField(nombreParametro);
 					if (parametros.get(nombreParametro).equals(campo.get(t)))
 						existe = true;
 				} catch (final NoSuchFieldException e) {

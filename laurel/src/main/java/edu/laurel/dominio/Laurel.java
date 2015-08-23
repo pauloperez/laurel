@@ -1,15 +1,20 @@
 package edu.laurel.dominio;
 
-import javax.inject.Inject;
-
 import edu.laurel.repositorios.RepositorioUsuarios;
 
 public class Laurel extends Base {
+	private static final long serialVersionUID = 6583391032605422260L;
+
 	private java.util.Collection<Usuario> usuarios;
 	private java.util.Collection<Proyecto> proyectos;
 
-	@Inject
+	//@Inject, no funciona con entities
 	RepositorioUsuarios repositorioUsuarios;
+
+	//Necesario para inyectar el repositorio desde un servicio
+	public void setRepositorioUsuarios(final RepositorioUsuarios repositorioUsuarios) {
+		this.repositorioUsuarios = repositorioUsuarios;
+	}
 
 	public Laurel() {
 		super();
@@ -42,8 +47,12 @@ public class Laurel extends Base {
 		return repositorioUsuarios.existeConNombre(usuarios, nombreUsuario);
 	}
 
-	public void darAlta(final Usuario usuario) {
-		usuarios.add(usuario);
+	public void darAlta(final Usuario usuario) throws NombreUsuarioExistenteExcepcion {
+		if (estaInscripto(usuario.getNombre()))
+			throw new NombreUsuarioExistenteExcepcion();
+		else
+			usuarios.add(usuario);
+
 	}
 
 	public void darBaja(final Usuario usuario) {

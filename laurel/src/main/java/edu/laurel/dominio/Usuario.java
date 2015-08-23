@@ -3,6 +3,8 @@ package edu.laurel.dominio;
 import edu.laurel.constantes.Equipo;
 
 public class Usuario extends Base {
+	private static final long serialVersionUID = 4787763353620883240L;
+
 	private String nombre;
 	private java.util.Set<Equipo> equipos;
 
