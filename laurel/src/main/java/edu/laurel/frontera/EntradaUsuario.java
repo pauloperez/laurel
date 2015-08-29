@@ -11,6 +11,7 @@ import edu.laurel.dominio.NombreUsuarioExistenteExcepcion;
 import edu.laurel.dominio.Usuario;
 import edu.laurel.repositorios.Raiz;
 
+@Transactional
 public class EntradaUsuario implements Serializable {
 
 	private static final long serialVersionUID = 5735209983740584036L;
@@ -19,12 +20,10 @@ public class EntradaUsuario implements Serializable {
 	@Raiz
 	private Laurel laurel;
 
-	@Transactional
 	public void alta(final Usuario usuario) throws NombreUsuarioExistenteExcepcion {
 		laurel.darAlta(usuario);
 	}
 
-	@Transactional
 	public void baja(final Usuario usuario) {
 		laurel.darBaja(usuario);
 	}

@@ -11,8 +11,11 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.apache.deltaspike.jpa.api.transaction.Transactional;
+
 import edu.laurel.dominio.Laurel;
 
+@Transactional
 public class EstrategaJPARepositorio<T> extends EstrategaRepositorio<T> {
 
 	private static final long serialVersionUID = 5665161464546963089L;

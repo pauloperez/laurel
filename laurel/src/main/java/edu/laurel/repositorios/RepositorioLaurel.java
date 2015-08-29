@@ -1,6 +1,7 @@
 package edu.laurel.repositorios;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 
@@ -16,6 +17,7 @@ public class RepositorioLaurel extends Repositorio<Laurel> {
 
 	@Raiz
 	@Produces
+	@RequestScoped
 	public Laurel obtenerLaurel() {
 		Laurel laurel = encontrar(Laurel.class, 1);
 		if (laurel == null)

@@ -52,7 +52,6 @@ public class Laurel extends Base {
 			throw new NombreUsuarioExistenteExcepcion();
 		else
 			usuarios.add(usuario);
-
 	}
 
 	public void darBaja(final Usuario usuario) {

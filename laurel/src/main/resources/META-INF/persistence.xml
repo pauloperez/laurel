@@ -6,7 +6,7 @@
 		<mapping-file>META-INF/orm.xml</mapping-file>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 	    <properties>
-	      <property name="javax.persistence.jdbc.url" value="$objectdb/db/guests.odb"/>
+	      <property name="javax.persistence.jdbc.url" value="objectdb://localhost:6136/laurel.odb"/>
 	      <property name="javax.persistence.jdbc.user" value="admin"/>
 	      <property name="javax.persistence.jdbc.password" value="admin"/>
 	    </properties>
