@@ -1,62 +1,69 @@
 package edu.laurel.dominio;
 
-public class Proyecto {
-    private final String nombre;
-    private final java.util.Collection<Item> items;
-    private final java.util.Collection<TipoItem> tipoItems;
+public class Proyecto extends Base {
+	private static final long serialVersionUID = 3927912902439221137L;
 
-    private final Usuario lider;
-    private final java.util.Collection<Usuario> miembros;
+	private String nombre;
+	private java.util.Collection<Item> items;
+	private java.util.Collection<TipoItem> tipoItems;
 
-    public Proyecto(final String nombre, final Usuario lider) {
-	this.nombre = nombre;
-	this.lider = lider;
-	items = new java.util.ArrayList<Item>();
-	miembros = new java.util.ArrayList<Usuario>();
-	tipoItems = new java.util.HashSet<TipoItem>();
-    }
+	private Usuario lider;
+	private java.util.Collection<Usuario> miembros;
 
-    public String getNombre() {
-	return nombre;
-    }
+	protected Proyecto() {
+		super();
+		items = new java.util.ArrayList<Item>();
+		tipoItems = new java.util.HashSet<TipoItem>();
+		miembros = new java.util.ArrayList<Usuario>();
+	}
 
-    public Usuario getLider() {
-	return lider;
-    }
+	public Proyecto(final String nombre, final Usuario lider) {
+		this();
+		this.nombre = nombre;
+		this.lider = lider;
+	}
 
-    public boolean esLider(final Usuario usuario) {
-	boolean esLider = false;
-	if (lider != null & usuario != null)
-	    esLider = lider.equals(usuario);
-	return esLider;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public java.util.Collection<TipoItem> getTipoItems() {
-	return tipoItems;
-    }
+	public Usuario getLider() {
+		return lider;
+	}
 
-    public java.util.Collection<Item> getItems() {
-	return items;
-    }
+	public boolean esLider(final Usuario usuario) {
+		boolean esLider = false;
+		if (lider != null & usuario != null)
+			esLider = lider.equals(usuario);
+		return esLider;
+	}
 
-    public void darAltaItem(final Item item) {
-	items.add(item);
-    }
+	public java.util.Collection<TipoItem> getTipoItems() {
+		return tipoItems;
+	}
 
-    public void darAltaTipoItem(final TipoItem tipoItem) {
-	tipoItems.add(tipoItem);
-    }
+	public java.util.Collection<Item> getItems() {
+		return items;
+	}
 
-    public java.util.Collection<Usuario> getMiembros() {
-	return miembros;
-    }
+	public void darAltaItem(final Item item) {
+		items.add(item);
+	}
 
-    public void adherir(final Usuario usuario) {
-	miembros.add(usuario);
-    }
+	public void darAltaTipoItem(final TipoItem tipoItem) {
+		tipoItems.add(tipoItem);
+	}
 
-    public void desligar(final Usuario usuario) {
-	miembros.remove(usuario);
-    }
+	public java.util.Collection<Usuario> getMiembros() {
+		return miembros;
+	}
+
+	public void adherir(final Usuario usuario) {
+		miembros.add(usuario);
+	}
+
+	public void desligar(final Usuario usuario) {
+		miembros.remove(usuario);
+	}
 
 }

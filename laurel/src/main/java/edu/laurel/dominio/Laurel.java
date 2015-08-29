@@ -1,51 +1,61 @@
 package edu.laurel.dominio;
 
-import javax.inject.Inject;
-
 import edu.laurel.repositorios.RepositorioUsuarios;
 
 public class Laurel extends Base {
-    private final java.util.Collection<Usuario> usuarios;
-    private final java.util.Collection<Proyecto> proyectos;
+	private static final long serialVersionUID = 6583391032605422260L;
 
-    @Inject
-    RepositorioUsuarios repositorioUsuarios;
+	private java.util.Collection<Usuario> usuarios;
+	private java.util.Collection<Proyecto> proyectos;
 
-    public Laurel() {
-	super();
-	usuarios = new java.util.HashSet<Usuario>();
-	proyectos = new java.util.ArrayList<Proyecto>(5);
-    }
+	//@Inject, no funciona con entities
+	RepositorioUsuarios repositorioUsuarios;
 
-    public java.util.Collection<Proyecto> getProyectos() {
-	return proyectos;
-    }
+	//Necesario para inyectar el repositorio desde un servicio
+	public void setRepositorioUsuarios(final RepositorioUsuarios repositorioUsuarios) {
+		this.repositorioUsuarios = repositorioUsuarios;
+	}
 
-    public boolean estaRegistrado(final Proyecto proyecto) {
-	return proyectos.contains(proyecto);
-    }
+	public Laurel() {
+		super();
+		setOid(1);
+		usuarios = new java.util.HashSet<Usuario>();
+		proyectos = new java.util.ArrayList<Proyecto>(5);
+	}
 
-    public void registrar(final Proyecto proyecto) {
-	proyectos.add(proyecto);
-    }
+	public java.util.Collection<Proyecto> getProyectos() {
+		return proyectos;
+	}
 
-    public void borrar(final Proyecto proyecto) {
-	proyectos.remove(proyecto);
-    }
+	public boolean estaRegistrado(final Proyecto proyecto) {
+		return proyectos.contains(proyecto);
+	}
 
-    public java.util.Collection<Usuario> getUsuarios() {
-	return usuarios;
-    }
+	public void registrar(final Proyecto proyecto) {
+		proyectos.add(proyecto);
+	}
 
-    public boolean estaInscripto(final String nombreUsuario) {
-	return repositorioUsuarios.existeConNombre(usuarios, nombreUsuario);
-    }
+	public void borrar(final Proyecto proyecto) {
+		proyectos.remove(proyecto);
+	}
 
-    public void darAlta(final Usuario usuario) {
-	usuarios.add(usuario);
-    }
+	public java.util.Collection<Usuario> getUsuarios() {
+		return usuarios;
+	}
 
-    public void darBaja(final Usuario usuario) {
-	usuarios.remove(usuario);
-    }
+	public boolean estaInscripto(final String nombreUsuario) {
+		return repositorioUsuarios.existeConNombre(usuarios, nombreUsuario);
+	}
+
+	public void darAlta(final Usuario usuario) throws NombreUsuarioExistenteExcepcion {
+		if (estaInscripto(usuario.getNombre()))
+			throw new NombreUsuarioExistenteExcepcion();
+		else
+			usuarios.add(usuario);
+
+	}
+
+	public void darBaja(final Usuario usuario) {
+		usuarios.remove(usuario);
+	}
 }

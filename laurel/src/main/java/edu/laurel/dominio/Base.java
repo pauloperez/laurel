@@ -1,17 +1,22 @@
 package edu.laurel.dominio;
 
-public abstract class Base {
-    protected int oid;
+import java.io.Serializable;
 
-    public Base() {
-	super();
-    }
+public abstract class Base implements Serializable {
 
-    public int getOid() {
-	return oid;
-    }
+	private static final long serialVersionUID = 5804447291928835348L;
 
-    public void setOid(final int oid) {
-	this.oid = oid;
-    }
+	protected int oid;
+
+	public Base() {
+		super();
+	}
+
+	public int getOid() {
+		return oid;
+	}
+
+	public void setOid(final int oid) {
+		this.oid = oid;
+	}
 }
