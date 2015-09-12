@@ -31,8 +31,9 @@ public class LaurelTest {
 	@Test
 	public void testAltaUsuario() throws NombreUsuarioExistenteExcepcion {
 		final String nombre = "Usuario Prueba";
+		final String usuarioString = "prueba";
 		final String password = "Contraseña";
-		final Usuario usuario = new Usuario(nombre, password);
+		final Usuario usuario = new Usuario(nombre, usuarioString, password);
 		usuario.asignar(Equipo.CALIDAD);
 
 		laurel.darAlta(usuario);
@@ -46,7 +47,7 @@ public class LaurelTest {
 
 	@Test
 	public void testRegistroProyectos() {
-		final Usuario lider = new Usuario("Usuario Prueba", "Contraseña");
+		final Usuario lider = new Usuario("Usuario Prueba", "prueba", "Contraseña");
 		final String nombre = "Proyecto Prueba";
 		final Proyecto proyecto = new Proyecto(nombre, lider);
 

@@ -8,6 +8,7 @@ public class Usuario extends Base {
 	private static final long serialVersionUID = 4787763353620883240L;
 
 	private String nombre;
+	private String usuario;
 	private String password;
 	private Date registro;
 	private Boolean activo;
@@ -20,14 +21,19 @@ public class Usuario extends Base {
 		equipos = new java.util.HashSet<Equipo>(5);
 	}
 
-	public Usuario(final String nombre, final String password) {
+	public Usuario(final String nombre, final String usuario, final String password) {
 		this();
 		this.nombre = nombre;
+		this.usuario = usuario;
 		this.password = password;
 	}
 
 	public String getNombre() {
 		return nombre;
+	}
+
+	public String getUsuario() {
+		return usuario;
 	}
 
 	public String getPassword() {
