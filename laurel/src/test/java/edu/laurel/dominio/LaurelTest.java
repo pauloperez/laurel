@@ -4,6 +4,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 
+import java.util.Set;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -30,11 +32,14 @@ public class LaurelTest {
 
 	@Test
 	public void testAltaUsuario() throws NombreUsuarioExistenteExcepcion {
+		final Usuario usuario = new Usuario();
 		final String nombre = "Usuario Prueba";
-		final String usuarioString = "prueba";
-		final String password = "Contraseña";
-		final Usuario usuario = new Usuario(nombre, usuarioString, password);
-		usuario.asignar(Equipo.CALIDAD);
+		usuario.setNombre(nombre);
+		usuario.setUsuario("prueba");
+		usuario.setPassword("Contraseña");
+		final Set<Equipo> equipos = usuario.getEquipos();
+		equipos.add(Equipo.CALIDAD);
+		usuario.setEquipos(equipos);
 
 		laurel.darAlta(usuario);
 		assertTrue(laurel.estaInscripto(nombre));
@@ -47,7 +52,7 @@ public class LaurelTest {
 
 	@Test
 	public void testRegistroProyectos() {
-		final Usuario lider = new Usuario("Usuario Prueba", "prueba", "Contraseña");
+		final Usuario lider = new Usuario();
 		final String nombre = "Proyecto Prueba";
 		final Proyecto proyecto = new Proyecto(nombre, lider);
 

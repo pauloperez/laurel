@@ -22,40 +22,18 @@ public class InterfazUsuarios implements Serializable {
 	@Inject
 	EntradaUsuario entradaUsuario;
 
-	private String nombre, usuarioString, password;
+	private Usuario usuario;
 
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(final String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getUsuario() {
-		return usuarioString;
-	}
-
-	public void setUsuario(final String usuario) {
-		usuarioString = usuario;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(final String password) {
-		this.password = password;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
 	@PostConstruct
 	public void inicio() {
-		//nombreUsuario = "prueba";
+		usuario = new Usuario();
 	}
 
 	public void alta() {
-
-		final Usuario usuario = new Usuario(nombre, usuarioString, password);
 		try {
 			entradaUsuario.alta(usuario);
 		} catch (final NombreUsuarioExistenteExcepcion e) {
@@ -65,7 +43,7 @@ public class InterfazUsuarios implements Serializable {
 	}
 
 	public void validarNombreUsuario() {
-		if (entradaUsuario.estaInscripto(usuarioString)) {
+		if (entradaUsuario.estaInscripto(usuario.getUsuario())) {
 			final FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_WARN,
 					"Nombre de usuario ya existe!", "");
 			FacesContext.getCurrentInstance().addMessage("altaUsuario:usuario", facesMessage);

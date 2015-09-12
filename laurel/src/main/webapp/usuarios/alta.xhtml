@@ -18,22 +18,37 @@
 
 				<p:panel id="panel" header="Alta de usuarios"
 					style="margin-bottom:10px;">
-					<p:messages id="messages" />
-					<h:panelGrid columns="3">
+					<p:growl id="messages" showDetail="true" />
+					<h:panelGrid columns="2">
 						<h:outputLabel for="nombre" value="Nombre *" />
-						<p:inputText id="nombre" value="#{interfazUsuarios.nombreUsuario}"
-							required="true" label="Nombre">
+						<p:inputText id="nombre"
+							value="#{interfazUsuarios.usuario.nombre}" required="true"
+							label="Nombre">
 							<f:validateLength minimum="2" />
 						</p:inputText>
-						<p:message for="nombre" />
+
 
 						<h:outputLabel for="usuario" value="Usuario *" />
 						<p:inputText id="usuario"
-							value="#{interfazUsuarios.nombreUsuario}" required="true"
+							value="#{interfazUsuarios.usuario.usuario}" required="true"
 							label="Usuario">
 							<f:validateLength minimum="2" />
 						</p:inputText>
-						<p:message for="usuario" />
+
+
+						<h:outputLabel for="contrasena" value="Contraseña *" />
+						<p:inputText id="contrasena"
+							value="#{interfazUsuarios.usuario.password}" required="true"
+							label="Constraseña">
+							<f:validateLength minimum="2" />
+						</p:inputText>
+
+						<h:outputLabel for="equipos" value="Lista de equipos: *" />
+						<p:selectManyMenu id="equipos" converter="equipoConverter"
+							value="#{interfazUsuarios.usuario.equipos}" required="true"
+							label="Equipos" showCheckbox="true">
+							<f:selectItems value="#{datos.equipos}" />
+						</p:selectManyMenu>
 					</h:panelGrid>
 				</p:panel>
 
@@ -45,10 +60,13 @@
 					style="margin-top:10px;">
 					<h:panelGrid columns="2">
 						<h:outputText value="Usuario " />
-						<h:outputText value="#{interfazUsuarios.nombreUsuario}" />
+						<h:outputText value="#{interfazUsuarios.usuario.nombre}" />
 						<p:button value="Configurar usuario" outcome="baja.xhtml">
-							<f:param name="nombreUsuario"
-								value="#{interfazUsuarios.nombreUsuario}" />
+							<f:param name="nombre" value="#{interfazUsuarios.usuario.nombre}" />
+							<f:param name="usuario"
+								value="#{interfazUsuarios.usuario.usuario}" />
+							<f:param name="contrasena"
+								value="#{interfazUsuarios.usuario.password}" />
 						</p:button>
 					</h:panelGrid>
 				</p:panel>

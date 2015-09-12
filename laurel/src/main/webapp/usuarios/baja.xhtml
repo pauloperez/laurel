@@ -20,7 +20,7 @@
 					<p:messages id="messages" />
 					<h:panelGrid columns="3">
 						      <h:outputLabel for="nombre" value="Nombre *" />
-                        <p:inputText id="nombre" value="#{interfazUsuarios.nombreUsuario}"
+                        <p:inputText id="nombre" value="#{interfazUsuarios.nombre}"
 							required="true" label="Nombre">
 							<f:validateLength minimum="2" />
 						</p:inputText>
@@ -36,7 +36,7 @@
 				<p:panel id="display" header="Informacion de usuario" style="margin-top:10px;">
 					<h:panelGrid columns="2">
 						<h:outputText value="Nombre: " />
-						<h:outputText value="#{interfazUsuarios.nombreUsuario}" />
+						<h:outputText value="#{interfazUsuarios.nombre}" />
 
 					</h:panelGrid>
 				</p:panel>
