@@ -12,6 +12,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import edu.laurel.constantes.Equipo;
+import edu.laurel.dominio.error.NombreUsuarioExistente;
 import edu.laurel.repositorios.RepositorioUsuarios;
 
 @Ignore
@@ -31,7 +32,7 @@ public class LaurelTest {
     }
 
     @Test
-    public void testAltaUsuario() throws NombreUsuarioExistenteExcepcion {
+    public void testAltaUsuario() throws NombreUsuarioExistente {
 	final Usuario usuario = new Usuario();
 	final String nombre = "Usuario Prueba";
 	usuario.setNombre(nombre);

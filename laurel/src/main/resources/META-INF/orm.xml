@@ -3,10 +3,10 @@
 	xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd">
 	<persistence-unit-metadata>
-       <persistence-unit-defaults>
-           <cascade-persist />
-       </persistence-unit-defaults>
-   </persistence-unit-metadata>
+		<persistence-unit-defaults>
+			<cascade-persist />
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
 	<mapped-superclass class="edu.laurel.dominio.Base">
 		<attributes>
 			<id name="oid">
@@ -36,17 +36,22 @@
 	</entity>
 	<entity class="edu.laurel.dominio.Proyecto" name="Proyecto">
 		<attributes>
-			<one-to-many name="items">
+			<one-to-many name="estadosItem">
 				<cascade>
 					<cascade-all />
 				</cascade>
 			</one-to-many>
-			<one-to-many name="tipoItems">
+			<one-to-many name="tiposItem">
 				<cascade>
 					<cascade-all />
 				</cascade>
 			</one-to-many>
 			<one-to-many name="miembros">
+				<cascade>
+					<cascade-all />
+				</cascade>
+			</one-to-many>
+			<one-to-many name="items">
 				<cascade>
 					<cascade-all />
 				</cascade>

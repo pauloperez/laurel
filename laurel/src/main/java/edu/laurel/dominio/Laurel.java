@@ -1,5 +1,6 @@
 package edu.laurel.dominio;
 
+import edu.laurel.dominio.error.NombreUsuarioExistente;
 import edu.laurel.repositorios.RepositorioUsuarios;
 
 public class Laurel extends Base {
@@ -47,9 +48,9 @@ public class Laurel extends Base {
 	return repositorioUsuarios.existeConNombre(usuarios, nombreUsuario);
     }
 
-    public void darAlta(final Usuario usuario) throws NombreUsuarioExistenteExcepcion {
+    public void darAlta(final Usuario usuario) throws NombreUsuarioExistente {
 	if (estaInscripto(usuario.getNombre()))
-	    throw new NombreUsuarioExistenteExcepcion();
+	    throw new NombreUsuarioExistente();
 	else
 	    usuarios.add(usuario);
     }

@@ -42,7 +42,7 @@ public class TipoItem {
 
     @Override
     public int hashCode() {
-	return new HashCodeBuilder(37, 11). // two randomly chosen prime numbers
+	return new HashCodeBuilder(3, 7). // two randomly chosen prime numbers
 	// if deriving: appendSuper(super.hashCode()).
 	append(nombre).toHashCode();
     }
@@ -53,7 +53,7 @@ public class TipoItem {
 	    return false;
 	if (obj == this)
 	    return true;
-	if (!(obj instanceof EstadoItem))
+	if (!(obj instanceof TipoItem))
 	    return false;
 
 	final TipoItem rhs = (TipoItem) obj;

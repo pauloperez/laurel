@@ -20,7 +20,7 @@ public class EstadoItem {
 
     @Override
     public int hashCode() {
-	return new HashCodeBuilder(37, 11). // two randomly chosen prime numbers
+	return new HashCodeBuilder(13, 11). // two randomly chosen prime numbers
 	// if deriving: appendSuper(super.hashCode()).
 	append(nombre).toHashCode();
     }
