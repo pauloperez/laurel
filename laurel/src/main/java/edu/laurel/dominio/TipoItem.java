@@ -1,5 +1,10 @@
 package edu.laurel.dominio;
 
+import java.util.Collection;
+import java.util.Iterator;
+
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class TipoItem {
     private String nombre;
@@ -31,8 +36,50 @@ public class TipoItem {
 	return false;
     }
 
-    public boolean puedeRealizarSecuencia(final EstadoItem actual,
-	    final EstadoItem siguiente) {
+    public boolean puedeRealizarSecuencia(final EstadoItem actual, final EstadoItem siguiente) {
 	return cicloDeVida.contains(new SecuenciaEstado(actual, siguiente));
     }
+
+    @Override
+    public int hashCode() {
+	return new HashCodeBuilder(3, 7). // two randomly chosen prime numbers
+	// if deriving: appendSuper(super.hashCode()).
+	append(nombre).toHashCode();
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+	if (obj == null)
+	    return false;
+	if (obj == this)
+	    return true;
+	if (!(obj instanceof TipoItem))
+	    return false;
+
+	final TipoItem rhs = (TipoItem) obj;
+	return new EqualsBuilder().
+	        // if deriving: appendSuper(super.equals(obj)).
+	        append(nombre, rhs.nombre).isEquals();
+    }
+
+    @Override
+    public String toString() {
+	final int maxLen = 5;
+	return "TipoItem [nombre=" + nombre + ", cicloDeVida="
+	        + (cicloDeVida != null ? toString(cicloDeVida, maxLen) : null) + "]";
+    }
+
+    private String toString(final Collection<?> collection, final int maxLen) {
+	final StringBuilder builder = new StringBuilder();
+	builder.append("[");
+	int i = 0;
+	for (final Iterator<?> iterator = collection.iterator(); iterator.hasNext() && i < maxLen; i++) {
+	    if (i > 0)
+		builder.append(", ");
+	    builder.append(iterator.next());
+	}
+	builder.append("]");
+	return builder.toString();
+    }
+
 }

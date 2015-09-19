@@ -9,8 +9,8 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import edu.laurel.dominio.NombreUsuarioExistenteExcepcion;
 import edu.laurel.dominio.Usuario;
+import edu.laurel.dominio.error.NombreUsuarioExistente;
 import edu.laurel.frontera.EntradaUsuario;
 
 @Named
@@ -39,7 +39,7 @@ public class InterfazUsuarios implements Serializable {
 	    final FacesMessage facesMessage = new FacesMessage("Usuario " + usuario.getUsuario() + " creado.");
 	    FacesContext.getCurrentInstance().addMessage(null, facesMessage);
 	    inicio();
-	} catch (final NombreUsuarioExistenteExcepcion e) {
+	} catch (final NombreUsuarioExistente e) {
 	    final FacesMessage facesMessage = new FacesMessage("Nombre de usuario ya existe!");
 	    FacesContext.getCurrentInstance().addMessage("altaUsuario:usuario", facesMessage);
 

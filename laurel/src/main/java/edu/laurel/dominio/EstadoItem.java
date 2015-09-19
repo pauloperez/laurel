@@ -20,9 +20,9 @@ public class EstadoItem {
 
     @Override
     public int hashCode() {
-	return new HashCodeBuilder(37, 11). // two randomly chosen prime numbers
-		// if deriving: appendSuper(super.hashCode()).
-		append(nombre).toHashCode();
+	return new HashCodeBuilder(13, 11). // two randomly chosen prime numbers
+	// if deriving: appendSuper(super.hashCode()).
+	append(nombre).toHashCode();
     }
 
     @Override
@@ -36,8 +36,8 @@ public class EstadoItem {
 
 	final EstadoItem rhs = (EstadoItem) obj;
 	return new EqualsBuilder().
-	// if deriving: appendSuper(super.equals(obj)).
-		append(nombre, rhs.nombre).isEquals();
+	        // if deriving: appendSuper(super.equals(obj)).
+	        append(nombre, rhs.nombre).isEquals();
     }
 
     @Override
