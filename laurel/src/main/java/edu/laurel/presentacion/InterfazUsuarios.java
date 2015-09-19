@@ -17,36 +17,40 @@ import edu.laurel.frontera.EntradaUsuario;
 @ViewScoped
 public class InterfazUsuarios implements Serializable {
 
-	private static final long serialVersionUID = 5040808907010877213L;
+    private static final long serialVersionUID = 5040808907010877213L;
 
-	@Inject
-	EntradaUsuario entradaUsuario;
+    @Inject
+    EntradaUsuario entradaUsuario;
 
-	private Usuario usuario;
+    private Usuario usuario;
 
-	public Usuario getUsuario() {
-		return usuario;
+    public Usuario getUsuario() {
+	return usuario;
+    }
+
+    @PostConstruct
+    public void inicio() {
+	usuario = new Usuario();
+    }
+
+    public void alta() {
+	try {
+	    entradaUsuario.alta(usuario);
+	    final FacesMessage facesMessage = new FacesMessage("Usuario " + usuario.getUsuario() + " creado.");
+	    FacesContext.getCurrentInstance().addMessage(null, facesMessage);
+	    inicio();
+	} catch (final NombreUsuarioExistenteExcepcion e) {
+	    final FacesMessage facesMessage = new FacesMessage("Nombre de usuario ya existe!");
+	    FacesContext.getCurrentInstance().addMessage("altaUsuario:usuario", facesMessage);
+
 	}
+    }
 
-	@PostConstruct
-	public void inicio() {
-		usuario = new Usuario();
+    public void validarNombreUsuario() {
+	if (entradaUsuario.estaInscripto(usuario.getUsuario())) {
+	    final FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_WARN,
+		    "Nombre de usuario ya existe!", "");
+	    FacesContext.getCurrentInstance().addMessage("altaUsuario:usuario", facesMessage);
 	}
-
-	public void alta() {
-		try {
-			entradaUsuario.alta(usuario);
-		} catch (final NombreUsuarioExistenteExcepcion e) {
-			final FacesMessage facesMessage = new FacesMessage("Nombre de usuario ya existe!");
-			FacesContext.getCurrentInstance().addMessage("altaUsuario:usuario", facesMessage);
-		}
-	}
-
-	public void validarNombreUsuario() {
-		if (entradaUsuario.estaInscripto(usuario.getUsuario())) {
-			final FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_WARN,
-					"Nombre de usuario ya existe!", "");
-			FacesContext.getCurrentInstance().addMessage("altaUsuario:usuario", facesMessage);
-		}
-	}
+    }
 }

@@ -21,8 +21,8 @@
 						icon="ui-icon-star" />
 					<p:menuitem value="Usuarios" url="/usuarios/usuarios.xhtml"
 						icon="ui-icon-search" />
-					<p:menuitem value="tipos de item"
-						url="/tiposDeItem/tiposDeItem.xhtml" icon="ui-icon-document" />
+					<p:menuitem value="Proyectos" url="/proyectos/proyectos.xhtml"
+						icon="ui-icon-document" />
 					<p:menuitem value="Items" url="/usuarios/baja.xhtml"
 						icon="ui-icon-wrench" />
 					<p:menuitem value="Estados"
@@ -36,15 +36,16 @@
 				<p:panel id="display"
 					style="display:block; text-align:center; margin-top:40px;">
 
-					<p:button style="float:center; width: 60px; height: 60px;" 
+
+					<p:button style="float:center; width: 60px; height: 60px;"
 						outcome="/usuarios/alta.xhtml" icon="star" />
 
-					<p:button outcome="items/crearItem.xhtml" icon="ui-icon-suitcase" />
+					<p:button outcome="/items/crearItem.xhtml" icon="ui-icon-suitcase" />
 
-					<p:button outcome="/tiposDeItem/tiposDeItem.xhtml"
+					<p:button outcome="/proyectos/proyectos.xhtml"
 						icon="ui-icon-note" />
-						
-					<p:button  title="Excel Document"  icon="otro" />
+
+					<p:button title="Excel Document" icon="otro" />
 
 
 				</p:panel>

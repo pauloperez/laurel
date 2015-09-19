@@ -15,6 +15,19 @@
 
 		<h:body>
 			<h:form id="form">
+				<p:tabMenu activeIndex="1">
+					<p:menuitem value="Laurel" url="/menuInicial.xhtml"
+						icon="ui-icon-star" />
+					<p:menuitem value="Usuarios" url="/usuarios/usuarios.xhtml"
+						icon="ui-icon-search" />
+					<p:menuitem value="tipos de item"
+						url="/tiposDeItem/tiposDeItem.xhtml" icon="ui-icon-document" />
+					<p:menuitem value="Items" url="/items/items.xhtml"
+						icon="ui-icon-wrench" />
+					<p:menuitem value="Estados del workflow"
+						url="/estadosDelWorkflow/estadosDelWorkflow.xhtml"
+						icon="ui-icon-person" />
+				</p:tabMenu>
 
 				<p:panel id="panel" header="Alta de usuarios"
 					style="margin-bottom:10px;">
@@ -35,40 +48,45 @@
 							<f:validateLength minimum="2" />
 						</p:inputText>
 
-
-						<h:outputLabel for="contrasena" value="Contraseña *" />
-						<p:inputText id="contrasena"
+						<h:outputText value="Contraseña *" />
+						<p:password id="contrseña"
 							value="#{interfazUsuarios.usuario.password}" required="true"
-							label="Constraseña">
+							feedback="true" label="Constraseña">
 							<f:validateLength minimum="2" />
-						</p:inputText>
+						</p:password>
+
 
 						<h:outputLabel for="equipos" value="Lista de equipos: *" />
+
+
 						<p:selectManyMenu id="equipos" converter="equipoConverter"
 							value="#{interfazUsuarios.usuario.equipos}" required="true"
-							label="Equipos" showCheckbox="true">
+							style="width:70%;" label="Equipos" showCheckbox="true">
 							<f:selectItems value="#{datos.equipos}" />
 						</p:selectManyMenu>
 					</h:panelGrid>
 				</p:panel>
 
 				<p:commandButton value="Dar alta" update="panel,display" id="ajax"
-					actionListener="#{interfazUsuarios.alta}"
-					styleClass="ui-priority-primary" />
+					styleClass="ui-priority-primary"
+					actionListener="#{interfazUsuarios.alta}">
+					
+				</p:commandButton>
+
+				<p:commandButton value="Reset Tag" update="panel, display"
+					process="@this" style="margin-right:20px;"
+					actionListener="#{interfazUsuarios.alta}" resetValues="true">
+
+				</p:commandButton>
+
+
 
 				<p:panel id="display" header="Informacion de "
 					style="margin-top:10px;">
 					<h:panelGrid columns="2">
 						<h:outputText value="Usuario " />
 						<h:outputText value="#{interfazUsuarios.usuario.nombre}" />
-						<p:button value="Configurar usuario" outcome="baja.xhtml">
-							<f:param name="nombre" value="#{interfazUsuarios.usuario.nombre}" />
-							<f:param name="usuario"
-								value="#{interfazUsuarios.usuario.usuario}" />
-							<f:param name="contrasena"
-								value="#{interfazUsuarios.usuario.password}" />
-						</p:button>
-					</h:panelGrid>
+											</h:panelGrid>
 				</p:panel>
 
 			</h:form>
