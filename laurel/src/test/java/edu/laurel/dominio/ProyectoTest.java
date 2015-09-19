@@ -7,23 +7,23 @@ import org.junit.Before;
 import org.junit.Test;
 
 import edu.laurel.constantes.Prioridad;
-import edu.laurel.dominio.Item;
-import edu.laurel.dominio.Proyecto;
-import edu.laurel.dominio.TipoItem;
-import edu.laurel.dominio.Usuario;
 
 public class ProyectoTest {
     private Proyecto proyecto;
     private Usuario lider;
+    private EstadoItem creado, analisis, desarrollo, validacion;
     private TipoItem bug, requirement, change;
 
     @Before
     public void setUp() throws Exception {
 	proyecto = new Proyecto("Parque-Siebel", lider);
+	creado = new EstadoItem("Creado");
+	analisis = new EstadoItem("Analisis");
+	desarrollo = new EstadoItem("Desarrollo");
+	validacion = new EstadoItem("Validacion");
 	bug = new TipoItem("Reporte de Bug");
 	requirement = new TipoItem("Requerimiento");
 	change = new TipoItem("Requerimiento");
-
     }
 
     @After
@@ -33,12 +33,10 @@ public class ProyectoTest {
 
     @Test
     public void testAltaItem() {
-
 	final Item item = new Item(bug, Prioridad.BAJA);
 	proyecto.darAltaItem(item);
 
 	assertTrue(proyecto.getItems().contains(item));
-
     }
 
     @Test
@@ -48,9 +46,19 @@ public class ProyectoTest {
 	proyecto.darAltaTipoItem(requirement);
 	proyecto.darAltaTipoItem(change);
 
-	assertTrue(proyecto.getTipoItems().contains(bug));
-	assertTrue(proyecto.getTipoItems().contains(requirement));
-	assertTrue(proyecto.getTipoItems().contains(change));
+	assertTrue(proyecto.getTiposItem().contains(bug));
+	assertTrue(proyecto.getTiposItem().contains(requirement));
+	assertTrue(proyecto.getTiposItem().contains(change));
+    }
+
+    @Test
+    public void testAltaEstadoItem() {
+	proyecto.setEstadosItem(creado, analisis, desarrollo, validacion);
+
+	assertTrue(proyecto.getEstadosItem().contains(creado));
+	assertTrue(proyecto.getEstadosItem().contains(analisis));
+	assertTrue(proyecto.getEstadosItem().contains(desarrollo));
+	assertTrue(proyecto.getEstadosItem().contains(validacion));
 
     }
 }
