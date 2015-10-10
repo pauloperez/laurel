@@ -39,17 +39,17 @@
 		<attributes>
 			<one-to-many name="estadosItem">
 				<cascade>
-					<cascade-all />
+					<cascade-refresh />
 				</cascade>
 			</one-to-many>
 			<one-to-many name="tiposItem">
 				<cascade>
-					<cascade-all />
+					<cascade-refresh />
 				</cascade>
 			</one-to-many>
 			<one-to-many name="miembros">
 				<cascade>
-					<cascade-all />
+					<cascade-refresh />
 				</cascade>
 			</one-to-many>
 			<one-to-many name="items">
