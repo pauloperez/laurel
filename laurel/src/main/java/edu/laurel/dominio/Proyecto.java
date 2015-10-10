@@ -1,5 +1,7 @@
 package edu.laurel.dominio;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+
 public class Proyecto extends Base {
     private static final long serialVersionUID = 3927912902439221137L;
 
@@ -12,7 +14,7 @@ public class Proyecto extends Base {
 
     private java.util.Collection<Item> items;
 
-    public Proyecto() {
+    protected Proyecto() {
 	super();
 	estadosItem = new java.util.HashSet<EstadoItem>();
 	tiposItem = new java.util.HashSet<TipoItem>();
@@ -33,6 +35,7 @@ public class Proyecto extends Base {
     public Usuario getLider() {
 	return lider;
     }
+
 
     public boolean esLider(final Usuario usuario) {
 	boolean esLider = false;
@@ -76,6 +79,21 @@ public class Proyecto extends Base {
 
     public void darAltaItem(final Item item) {
 	items.add(item);
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+	if (obj == null)
+	    return false;
+	if (obj == this)
+	    return true;
+	if (!(obj instanceof Proyecto))
+	    return false;
+
+	final Proyecto rhs = (Proyecto) obj;
+	return new EqualsBuilder().
+		// if deriving: appendSuper(super.equals(obj)).
+		append(nombre, rhs.nombre).isEquals();
     }
 
 }

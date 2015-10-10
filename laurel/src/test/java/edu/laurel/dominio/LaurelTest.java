@@ -12,6 +12,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import edu.laurel.constantes.Equipo;
+import edu.laurel.dominio.error.NombreProyectoExistente;
 import edu.laurel.dominio.error.NombreUsuarioExistente;
 import edu.laurel.repositorios.RepositorioUsuarios;
 
@@ -52,15 +53,15 @@ public class LaurelTest {
     }
 
     @Test
-    public void testRegistroProyectos() {
+    public void testRegistroProyectos() throws NombreProyectoExistente {
 	final Usuario lider = new Usuario();
 	final String nombre = "Proyecto Prueba";
 	final Proyecto proyecto = new Proyecto(nombre, lider);
 
 	laurel.registrar(proyecto);
-	assertTrue(laurel.estaRegistrado(proyecto));
+	assertTrue(laurel.estaRegistrado(nombre));
 
 	laurel.borrar(proyecto);
-	assertFalse(laurel.estaRegistrado(proyecto));
+	assertFalse(laurel.estaRegistrado(nombre));
     }
 }

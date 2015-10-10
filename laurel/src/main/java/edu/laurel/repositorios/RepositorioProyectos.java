@@ -6,17 +6,17 @@ import java.util.Map;
 
 import javax.enterprise.context.ApplicationScoped;
 
-import edu.laurel.dominio.Usuario;
+import edu.laurel.dominio.Proyecto;
 
 @ApplicationScoped
-public class RepositorioUsuarios extends Repositorio<Usuario> {
+public class RepositorioProyectos extends Repositorio<Proyecto> {
 
     private static final long serialVersionUID = -8743544318071803488L;
 
-    public boolean existeConNombre(final Collection<Usuario> usuarios, final String nombreUsuario) {
+    public boolean existeConNombre(final Collection<Proyecto> proyectos, final String nombreProyecto) {
 	final Map<String, String> parametros = new HashMap<String, String>();
-	parametros.put("nombre", nombreUsuario);
-	return super.existe(usuarios, Usuario.class, parametros);
+	parametros.put("nombre", nombreProyecto);
+	return super.existe(proyectos, Proyecto.class, parametros);
     }
 
 }

@@ -10,19 +10,23 @@ import edu.laurel.dominio.Laurel;
 @ApplicationScoped
 public class RepositorioLaurel extends Repositorio<Laurel> {
 
-	private static final long serialVersionUID = -7489574749156134567L;
+    private static final long serialVersionUID = -7489574749156134567L;
 
-	@Inject
-	private RepositorioUsuarios repositorioUsuarios;
+    @Inject
+    private RepositorioUsuarios repositorioUsuarios;
 
-	@Raiz
-	@Produces
-	@RequestScoped
-	public Laurel obtenerLaurel() {
-		Laurel laurel = encontrar(Laurel.class, 1);
-		if (laurel == null)
-			laurel = estrategaRepositorio.crearRaiz();
-		laurel.setRepositorioUsuarios(repositorioUsuarios);
-		return laurel;
-	}
+    @Inject
+    private RepositorioProyectos repositorioProyectos;
+
+    @Raiz
+    @Produces
+    @RequestScoped
+    public Laurel obtenerLaurel() {
+	Laurel laurel = encontrar(Laurel.class, 1);
+	if (laurel == null)
+	    laurel = estrategaRepositorio.crearRaiz();
+	laurel.setRepositorioUsuarios(repositorioUsuarios);
+	laurel.setRepositorioProyectos(repositorioProyectos);
+	return laurel;
+    }
 }

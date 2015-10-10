@@ -1,6 +1,8 @@
 package edu.laurel.dominio;
 
+import edu.laurel.dominio.error.NombreProyectoExistente;
 import edu.laurel.dominio.error.NombreUsuarioExistente;
+import edu.laurel.repositorios.RepositorioProyectos;
 import edu.laurel.repositorios.RepositorioUsuarios;
 
 public class Laurel extends Base {
@@ -9,12 +11,17 @@ public class Laurel extends Base {
     private java.util.Collection<Usuario> usuarios;
     private java.util.Collection<Proyecto> proyectos;
 
-    //@Inject, no funciona con entities 
+    //@Inject, no funciona con entities
     RepositorioUsuarios repositorioUsuarios;
+    RepositorioProyectos repositorioProyectos;
 
     //Necesario para inyectar el repositorio desde un servicio
     public void setRepositorioUsuarios(final RepositorioUsuarios repositorioUsuarios) {
 	this.repositorioUsuarios = repositorioUsuarios;
+    }
+
+    public void setRepositorioProyectos(final RepositorioProyectos repositorioProyectos) {
+	this.repositorioProyectos = repositorioProyectos;
     }
 
     public Laurel() {
@@ -28,12 +35,15 @@ public class Laurel extends Base {
 	return proyectos;
     }
 
-    public boolean estaRegistrado(final Proyecto proyecto) {
-	return proyectos.contains(proyecto);
+    public boolean estaRegistrado(final String nombreProyecto) {
+	return repositorioProyectos.existeConNombre(proyectos, nombreProyecto);
     }
 
-    public void registrar(final Proyecto proyecto) {
-	proyectos.add(proyecto);
+    public void registrar(final Proyecto proyecto) throws NombreProyectoExistente {
+	if (estaRegistrado(proyecto.getNombre()))
+	    throw new NombreProyectoExistente();
+	else
+	    proyectos.add(proyecto);
     }
 
     public void borrar(final Proyecto proyecto) {

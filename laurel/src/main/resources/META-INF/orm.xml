@@ -27,6 +27,7 @@
 				</cascade>
 			</one-to-many>
 			<transient name="repositorioUsuarios" />
+			<transient name="repositorioProyectos" />
 		</attributes>
 	</entity>
 	<entity class="edu.laurel.dominio.Usuario" name="Usuario">

@@ -28,7 +28,7 @@ public class EntradaProyecto implements Serializable {
 	laurel.borrar(proyecto);
     }
 
-    public boolean estaRegistrado(final Proyecto proyecto) {
-	return laurel.estaRegistrado(proyecto);
+    public boolean estaRegistrado(final String nombreProyecto) {
+	return laurel.estaRegistrado(nombreProyecto);
     }
 }

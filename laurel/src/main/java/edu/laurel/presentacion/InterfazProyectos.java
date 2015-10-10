@@ -10,9 +10,10 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import edu.laurel.dominio.NombreUsuarioExistenteExcepcion;
 import edu.laurel.dominio.Proyecto;
 import edu.laurel.dominio.Usuario;
+import edu.laurel.dominio.error.NombreProyectoExistente;
+import edu.laurel.frontera.EntradaProyecto;
 
 @Named
 @ViewScoped
@@ -23,38 +24,41 @@ public class InterfazProyectos implements Serializable {
     @Inject
     EntradaProyecto entradaProyecto;
 
-    private Proyecto proyecto;
-
-
-    public Usuario getUsuario() {
-	return usuario;
-    }
+    private String nombreProyecto;
+    private Usuario lider;
 
     @PostConstruct
     public void inicio() {
-
-	proyecto = new Proyecto();
-
     }
 
-    public void alta() {
+    public void registrar() {
+	final Proyecto proyecto = new Proyecto(nombreProyecto, lider);
 	try {
-	    entradaUsuario.alta(usuario);
-	    final FacesMessage facesMessage = new FacesMessage("Usuario " + usuario.getUsuario() + " creado.");
+	    entradaProyecto.registrar(proyecto);
+	    final FacesMessage facesMessage = new FacesMessage("Proyecto " + proyecto.getNombre() + " creado.");
 	    FacesContext.getCurrentInstance().addMessage(null, facesMessage);
-	    inicio();
-	} catch (final NombreUsuarioExistenteExcepcion e) {
-	    final FacesMessage facesMessage = new FacesMessage("Nombre de usuario ya existe!");
-	    FacesContext.getCurrentInstance().addMessage("altaUsuario:usuario", facesMessage);
+
+	} catch (final NombreProyectoExistente e) {
+	    final FacesMessage facesMessage = new FacesMessage("Nombre de proyecto ya existe!");
+	    FacesContext.getCurrentInstance().addMessage("altaProyecto:proyecto", facesMessage);
 
 	}
     }
 
-    public void validarNombreUsuario() {
-	if (entradaUsuario.estaInscripto(usuario.getUsuario())) {
-	    final FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_WARN,
-		    "Nombre de usuario ya existe!", "");
-	    FacesContext.getCurrentInstance().addMessage("altaUsuario:usuario", facesMessage);
-	}
+    public String getNombreProyecto() {
+	return nombreProyecto;
     }
+
+    public void setNombreProyecto(final String nombreProyecto) {
+	this.nombreProyecto = nombreProyecto;
+    }
+
+    public Usuario getLider() {
+	return lider;
+    }
+
+    public void setLider(final Usuario lider) {
+	this.lider = lider;
+    }
+
 }
