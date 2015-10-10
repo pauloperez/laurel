@@ -1,5 +1,7 @@
 package edu.laurel.dominio;
 
+import java.util.Collection;
+
 import edu.laurel.dominio.error.NombreProyectoExistente;
 import edu.laurel.dominio.error.NombreUsuarioExistente;
 import edu.laurel.repositorios.RepositorioProyectos;
@@ -67,5 +69,9 @@ public class Laurel extends Base {
 
     public void darBaja(final Usuario usuario) {
 	usuarios.remove(usuario);
+    }
+
+    public Collection<Usuario> listaUsuarios() {
+	return repositorioUsuarios.listar();
     }
 }

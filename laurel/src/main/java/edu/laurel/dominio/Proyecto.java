@@ -1,5 +1,7 @@
 package edu.laurel.dominio;
 
+import java.util.List;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 
 public class Proyecto extends Base {
@@ -26,6 +28,11 @@ public class Proyecto extends Base {
 	this();
 	this.nombre = nombre;
 	this.lider = lider;
+    }
+
+    public Proyecto(final String nombre, final Usuario lider, final List<Usuario> miembros) {
+	this(nombre, lider);
+	this.miembros = miembros;
     }
 
     public String getNombre() {

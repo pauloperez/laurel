@@ -2,6 +2,7 @@ package edu.laurel.presentacion;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -9,6 +10,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import org.primefaces.model.DualListModel;
 
 import edu.laurel.dominio.Proyecto;
 import edu.laurel.dominio.Usuario;
@@ -26,13 +29,16 @@ public class InterfazProyectos implements Serializable {
 
     private String nombreProyecto;
     private Usuario lider;
+    private DualListModel<Usuario> usuarios;
 
     @PostConstruct
     public void inicio() {
+	usuarios = new DualListModel<Usuario>(new ArrayList<Usuario>(entradaProyecto.listaUsuarios()),
+		new ArrayList<Usuario>(5));
     }
 
     public void registrar() {
-	final Proyecto proyecto = new Proyecto(nombreProyecto, lider);
+	final Proyecto proyecto = new Proyecto(nombreProyecto, lider, usuarios.getTarget());
 	try {
 	    entradaProyecto.registrar(proyecto);
 	    final FacesMessage facesMessage = new FacesMessage("Proyecto " + proyecto.getNombre() + " creado.");
@@ -60,5 +66,14 @@ public class InterfazProyectos implements Serializable {
     public void setLider(final Usuario lider) {
 	this.lider = lider;
     }
+
+    public DualListModel<Usuario> getUsuarios() {
+	return usuarios;
+    }
+
+    public void setUsuarios(final DualListModel<Usuario> usuarios) {
+	this.usuarios = usuarios;
+    }
+
 
 }

@@ -19,4 +19,10 @@ public class RepositorioUsuarios extends Repositorio<Usuario> {
 	return super.existe(usuarios, Usuario.class, parametros);
     }
 
+    public Collection<Usuario> listar() {
+	final Map<String, Object> parametros = new HashMap<String, Object>();
+	parametros.put("activo", Boolean.TRUE);
+	return super.buscar(Usuario.class, parametros);
+    }
+
 }
