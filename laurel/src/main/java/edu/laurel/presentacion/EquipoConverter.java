@@ -8,8 +8,8 @@ import edu.laurel.constantes.Equipo;
 @FacesConverter(value = "equipoConverter")
 public class EquipoConverter extends EnumConverter {
 
-	public EquipoConverter() {
-		super(Equipo.class);
-	}
+    public EquipoConverter() {
+	super(Equipo.class);
+    }
 
 }

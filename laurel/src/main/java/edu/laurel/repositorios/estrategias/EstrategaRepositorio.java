@@ -11,7 +11,7 @@ public abstract class EstrategaRepositorio<T> implements Serializable {
 
     private static final long serialVersionUID = 3147303138209586719L;
 
-    public abstract T encontrar(final Class<T> clase, final int oid);
+    public abstract T buscar(final Class<T> clase, final int oid);
 
     public abstract List<T> buscar(Class<T> clase, Map<String, ?> parametros);
 

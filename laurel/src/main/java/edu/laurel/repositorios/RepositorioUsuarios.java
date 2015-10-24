@@ -2,6 +2,7 @@ package edu.laurel.repositorios;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -19,7 +20,7 @@ public class RepositorioUsuarios extends Repositorio<Usuario> {
 	return super.existe(usuarios, Usuario.class, parametros);
     }
 
-    public Collection<Usuario> listar() {
+    public List<Usuario> listar() {
 	final Map<String, Object> parametros = new HashMap<String, Object>();
 	parametros.put("activo", Boolean.TRUE);
 	return super.buscar(Usuario.class, parametros);

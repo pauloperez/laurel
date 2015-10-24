@@ -22,7 +22,7 @@ public class RepositorioLaurel extends Repositorio<Laurel> {
     @Produces
     @RequestScoped
     public Laurel obtenerLaurel() {
-	Laurel laurel = encontrar(Laurel.class, 1);
+	Laurel laurel = buscar(Laurel.class, 1);
 	if (laurel == null)
 	    laurel = estrategaRepositorio.crearRaiz();
 	laurel.setRepositorioUsuarios(repositorioUsuarios);

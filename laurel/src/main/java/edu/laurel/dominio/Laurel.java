@@ -1,6 +1,6 @@
 package edu.laurel.dominio;
 
-import java.util.Collection;
+import java.util.List;
 
 import edu.laurel.dominio.error.NombreProyectoExistente;
 import edu.laurel.dominio.error.NombreUsuarioExistente;
@@ -71,7 +71,11 @@ public class Laurel extends Base {
 	usuarios.remove(usuario);
     }
 
-    public Collection<Usuario> listaUsuarios() {
+    public List<Usuario> listarUsuarios() {
 	return repositorioUsuarios.listar();
+    }
+
+    public Usuario buscarUsuario(final int oid) {
+	return repositorioUsuarios.buscar(Usuario.class, oid);
     }
 }

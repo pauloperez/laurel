@@ -53,4 +53,9 @@ public class InterfazUsuarios implements Serializable {
 	    FacesContext.getCurrentInstance().addMessage("altaUsuario:usuario", facesMessage);
 	}
     }
+
+    public java.util.List<Usuario> listar() {
+	return entradaUsuario.listar();
+    }
+
 }

@@ -16,8 +16,8 @@ public abstract class Repositorio<T> implements Serializable {
     @Inject
     EstrategaRepositorio<T> estrategaRepositorio;
 
-    public T encontrar(final Class<T> clase, final int oid) {
-	return estrategaRepositorio.encontrar(clase, oid);
+    public T buscar(final Class<T> clase, final int oid) {
+	return estrategaRepositorio.buscar(clase, oid);
     }
 
     public List<T> buscar(final Class<T> clase, final Map<String, ?> parametros) {

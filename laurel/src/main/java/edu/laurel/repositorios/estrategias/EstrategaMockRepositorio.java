@@ -14,7 +14,7 @@ public class EstrategaMockRepositorio<T> extends EstrategaRepositorio<T> {
     private static final long serialVersionUID = 5504391341707114240L;
 
     @Override
-    public T encontrar(final Class<T> clase, final int oid) {
+    public T buscar(final Class<T> clase, final int oid) {
 	return null;
     }
 

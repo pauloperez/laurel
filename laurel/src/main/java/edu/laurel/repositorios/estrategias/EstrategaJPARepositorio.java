@@ -24,7 +24,7 @@ public class EstrategaJPARepositorio<T> extends EstrategaRepositorio<T> {
     private EntityManager entityManager;
 
     @Override
-    public T encontrar(final Class<T> clase, final int oid) {
+    public T buscar(final Class<T> clase, final int oid) {
 	return entityManager.find(clase, oid);
     }
 

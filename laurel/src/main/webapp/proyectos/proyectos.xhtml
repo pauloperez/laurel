@@ -9,7 +9,7 @@
 	</ui:define>
 	<ui:define name="content">
 		<h:head>
-			<title>Usuarios</title>
+			<title>Proyectos</title>
 
 		</h:head>
 
@@ -19,8 +19,8 @@
 					icon="ui-icon-star" />
 				<p:menuitem value="Usuarios" url="/usuarios/usuarios.xhtml"
 					icon="ui-icon-search" />
-				<p:menuitem value="tipos de item"
-					url="/tiposDeItem/tiposDeItem.xhtml" icon="ui-icon-document" />
+				<p:menuitem value="Proyectos" url="/proyectos/proyectos.xhtml"
+					icon="ui-icon-document" />
 				<p:menuitem value="Items" url="/items/items.xhtml"
 					icon="ui-icon-wrench" />
 				<p:menuitem value="Estados del workflow"
@@ -28,16 +28,16 @@
 					icon="ui-icon-person" />
 			</p:tabMenu>
 
+
 			<p:panel id="display"
 				style="display:block; text-align:center; margin-top:40px;">
 
 
-				<p:button value="Alta usuario" outcome="/usuarios/alta.xhtml"
-					icon="ui-icon-star" />
+				<p:button value="Crear proyecto"
+					outcome="/proyectos/crearProyecto.xhtml" icon="ui-icon-star" />
 
-				<p:button value="Baja usuarios" outcome="/usuarios/baja.xhtml"
-					icon="ui-icon-suitcase" />
-
+				<p:button value="Eliminar proyecto"
+					outcome="/proyectos/eliminarProyecto.xhtml" icon="ui-icon-suitcase" />
 
 
 

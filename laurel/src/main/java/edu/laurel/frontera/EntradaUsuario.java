@@ -1,6 +1,7 @@
 package edu.laurel.frontera;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -11,7 +12,7 @@ import edu.laurel.dominio.Usuario;
 import edu.laurel.dominio.error.NombreUsuarioExistente;
 import edu.laurel.repositorios.Raiz;
 
-@Transactional
+
 public class EntradaUsuario implements Serializable {
 
     private static final long serialVersionUID = 5735209983740584036L;
@@ -20,15 +21,25 @@ public class EntradaUsuario implements Serializable {
     @Raiz
     private Laurel laurel;
 
+    @Transactional
     public void alta(final Usuario usuario) throws NombreUsuarioExistente {
 	laurel.darAlta(usuario);
     }
 
+    @Transactional
     public void baja(final Usuario usuario) {
 	laurel.darBaja(usuario);
     }
 
     public boolean estaInscripto(final String nombreUsuario) {
 	return laurel.estaInscripto(nombreUsuario);
+    }
+
+    public List<Usuario> listar() {
+	return laurel.listarUsuarios();
+    }
+
+    public Usuario buscar(final int oid) {
+	return laurel.buscarUsuario(oid);
     }
 }
