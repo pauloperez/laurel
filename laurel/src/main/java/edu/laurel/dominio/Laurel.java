@@ -30,7 +30,7 @@ public class Laurel extends Base {
 	super();
 	setOid(1);
 	usuarios = new java.util.HashSet<Usuario>();
-	proyectos = new java.util.ArrayList<Proyecto>(5);
+	proyectos = new java.util.HashSet<Proyecto>();
     }
 
     public java.util.Collection<Proyecto> getProyectos() {

@@ -1,6 +1,7 @@
 package edu.laurel.frontera;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -8,6 +9,7 @@ import org.apache.deltaspike.jpa.api.transaction.Transactional;
 
 import edu.laurel.dominio.Laurel;
 import edu.laurel.dominio.Proyecto;
+import edu.laurel.dominio.Usuario;
 import edu.laurel.dominio.error.NombreProyectoExistente;
 import edu.laurel.repositorios.Raiz;
 
@@ -31,6 +33,10 @@ public class EntradaProyecto implements Serializable {
 
     public boolean estaRegistrado(final String nombreProyecto) {
 	return laurel.estaRegistrado(nombreProyecto);
+    }
+
+    public List<Usuario> listar() {
+	return laurel.listarUsuarios();
     }
 
 }

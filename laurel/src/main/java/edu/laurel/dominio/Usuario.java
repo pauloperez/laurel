@@ -2,6 +2,8 @@ package edu.laurel.dominio;
 
 import java.util.Date;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+
 import edu.laurel.constantes.Equipo;
 
 public class Usuario extends Base {
@@ -71,6 +73,27 @@ public class Usuario extends Base {
 
     public void setEquipos(final java.util.Set<Equipo> equipos) {
 	this.equipos = equipos;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+	if (obj == null)
+	    return false;
+	if (obj == this)
+	    return true;
+	if (!(obj instanceof Usuario))
+	    return false;
+
+	final Usuario rhs = (Usuario) obj;
+	return new EqualsBuilder().
+	        // if deriving: appendSuper(super.equals(obj)).
+	        append(nombre, rhs.nombre).isEquals();
+    }
+
+    @Override
+    public String toString() {
+	return String.format("Usuario [nombre=%s, usuario=%s, password=%s, registro=%s, activo=%s, equipos=%s]", nombre,
+	        usuario, password, registro, activo, equipos);
     }
 
 }

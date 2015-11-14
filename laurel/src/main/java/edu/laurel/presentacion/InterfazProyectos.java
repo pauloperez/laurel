@@ -16,7 +16,6 @@ import edu.laurel.dominio.Proyecto;
 import edu.laurel.dominio.Usuario;
 import edu.laurel.dominio.error.NombreProyectoExistente;
 import edu.laurel.frontera.EntradaProyecto;
-import edu.laurel.frontera.EntradaUsuario;
 
 @Named
 @ViewScoped
@@ -26,8 +25,6 @@ public class InterfazProyectos implements Serializable {
 
     @Inject
     EntradaProyecto entradaProyecto;
-    @Inject
-    EntradaUsuario entradaUsuario;
 
     private String nombreProyecto;
     private Usuario lider;
@@ -35,8 +32,8 @@ public class InterfazProyectos implements Serializable {
 
     @PostConstruct
     public void inicio() {
-	usuarios = new DualListModel<Usuario>(new ArrayList<Usuario>(entradaUsuario.listar()),
-		new ArrayList<Usuario>(5));
+	usuarios = new DualListModel<Usuario>(new ArrayList<Usuario>(entradaProyecto.listar()),
+	        new ArrayList<Usuario>(5));
     }
 
     public void registrar() {

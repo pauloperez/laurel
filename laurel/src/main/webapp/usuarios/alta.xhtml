@@ -1,97 +1,64 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:f="http://java.sun.com/jsf/core"
-	template="../templates/template.xhtml">
-
-	<ui:define name="metadata">
-	</ui:define>
-	<ui:define name="content">
-		<h:head>
-			<title>Alta de Usuarios</title>
-
-		</h:head>
-
-		<h:body>
-			<h:form id="form">
-				<p:tabMenu activeIndex="1">
-					<p:menuitem value="Laurel" url="/menuInicial.xhtml"
-						icon="ui-icon-star" />
-					<p:menuitem value="Usuarios" url="/usuarios/usuarios.xhtml"
-						icon="ui-icon-search" />
-					<p:menuitem value="Proyectos"
-						url="/proyectos/proyectos.xhtml" icon="ui-icon-document" />
-					<p:menuitem value="Items" url="/items/items.xhtml"
-						icon="ui-icon-wrench" />
-					<p:menuitem value="Estados del workflow"
-						url="/estadosDelWorkflow/estadosDelWorkflow.xhtml"
-						icon="ui-icon-person" />
-				</p:tabMenu>
-
-				<p:panel id="panel" header="Alta de usuarios"
-					style="margin-bottom:10px;">
-					<p:growl id="messages" showDetail="true" />
-					<h:panelGrid columns="2">
-						<h:outputLabel for="nombre" value="Nombre *" />
-						<p:inputText id="nombre"
-							value="#{interfazUsuarios.usuario.nombre}" required="true"
-							label="Nombre">
-							<f:validateLength minimum="2" />
-						</p:inputText>
-
-
-						<h:outputLabel for="usuario" value="Usuario *" />
-						<p:inputText id="usuario"
-							value="#{interfazUsuarios.usuario.usuario}" required="true"
-							label="Usuario">
-							<f:validateLength minimum="2" />
-						</p:inputText>
-
-						<h:outputText value="Contraseña *" />
-						<p:password id="contrseña"
-							value="#{interfazUsuarios.usuario.password}" required="true"
-							feedback="true" label="Constraseña">
-							<f:validateLength minimum="2" />
-						</p:password>
-
-
-						<h:outputLabel for="equipos" value="Lista de equipos: *" />
-
-
-						<p:selectManyMenu id="equipos" converter="equipoConverter"
-							value="#{interfazUsuarios.usuario.equipos}" required="true"
-							style="width:70%;" label="Equipos" showCheckbox="true">
-							<f:selectItems value="#{datos.equipos}" />
-						</p:selectManyMenu>
-					</h:panelGrid>
-				</p:panel>
-
-				<p:commandButton value="Dar alta" update="panel,display" id="ajax"
-					styleClass="ui-priority-primary"
-					actionListener="#{interfazUsuarios.alta}">
-					
-				</p:commandButton>
-
-				<p:commandButton value="Reset Tag" update="panel, display"
-					process="@this" style="margin-right:20px;"
-					actionListener="#{interfazUsuarios.alta}" resetValues="true">
-
-				</p:commandButton>
-
-
-
-				<p:panel id="display" header="Informacion de "
-					style="margin-top:10px;">
-					<h:panelGrid columns="2">
-						<h:outputText value="Usuario " />
-						<h:outputText value="#{interfazUsuarios.usuario.nombre}" />
-											</h:panelGrid>
-				</p:panel>
-
-			</h:form>
-
-		</h:body>
-	</ui:define>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core"
+  template="../templates/template.xhtml"
+>
+  <ui:define name="metadata">
+  </ui:define>
+  <ui:define name="content">
+    <h:head>
+      <title>Alta de Usuarios</title>
+    </h:head>
+    <h:body>
+      <h:form id="form">
+        <p:tabMenu activeIndex="1">
+          <p:menuitem value="Laurel" url="/menuInicial.xhtml" icon="ui-icon-star" />
+          <p:menuitem value="Usuarios" url="/usuarios/usuarios.xhtml" icon="ui-icon-search" />
+          <p:menuitem value="Proyectos" url="/proyectos/proyectos.xhtml" icon="ui-icon-document" />
+          <p:menuitem value="Items" url="/items/items.xhtml" icon="ui-icon-wrench" />
+          <p:menuitem value="Estados del workflow" url="/estadosDelWorkflow/estadosDelWorkflow.xhtml"
+            icon="ui-icon-person"
+          />
+        </p:tabMenu>
+        <p:panel id="panel" header="Alta de usuarios" style="margin-bottom:10px;">
+          <p:growl id="messages" showDetail="true" />
+          <h:panelGrid columns="2">
+            <h:outputLabel for="nombre" value="Nombre *" />
+            <p:inputText id="nombre" value="#{interfazUsuarios.usuario.nombre}" required="true" label="Nombre">
+              <f:validateLength minimum="2" />
+            </p:inputText>
+            <h:outputLabel for="usuario" value="Usuario *" />
+            <p:inputText id="usuario" value="#{interfazUsuarios.usuario.usuario}" required="true" label="Usuario">
+              <f:validateLength minimum="2" />
+            </p:inputText>
+            <h:outputText value="Contraseña *" />
+            <p:password id="contrseña" value="#{interfazUsuarios.usuario.password}" required="true" feedback="true"
+              label="Constraseña"
+            >
+              <f:validateLength minimum="2" />
+            </p:password>
+            <h:outputLabel for="equipos" value="Lista de equipos: *" />
+            <p:selectManyMenu id="equipos" value="#{interfazUsuarios.usuario.equipos}" required="true"
+              converter="omnifaces.GenericEnumConverter" style="width:70%;" label="Equipos" showCheckbox="true"
+            >
+              <f:selectItems value="#{datos.equipos}" />
+            </p:selectManyMenu>
+          </h:panelGrid>
+        </p:panel>
+        <p:commandButton value="Dar alta" update="panel,display" id="ajax" styleClass="ui-priority-primary"
+          actionListener="#{interfazUsuarios.alta}"
+        >
+        </p:commandButton>
+        <p:commandButton value="Reset Tag" update="panel, display" process="@this" style="margin-right:20px;"
+          actionListener="#{interfazUsuarios.alta}" resetValues="true"
+        >
+        </p:commandButton>
+        <p:panel id="display" header="Informacion de " style="margin-top:10px;">
+          <h:panelGrid columns="2">
+            <h:outputText value="Usuario " />
+            <h:outputText value="#{interfazUsuarios.usuario.nombre}" />
+          </h:panelGrid>
+        </p:panel>
+      </h:form>
+    </h:body>
+  </ui:define>
 </ui:composition>
-

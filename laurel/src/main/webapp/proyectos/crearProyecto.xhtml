@@ -1,71 +1,49 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:f="http://java.sun.com/jsf/core"
-	template="../templates/template.xhtml">
-
-	<ui:define name="metadata">
-	</ui:define>
-	<ui:define name="content">
-		<h:head>
-			<title>Crear proyecto</title>
-
-		</h:head>
-
-		<h:body>
-			<h:form id="form">
-				<p:tabMenu activeIndex="1">
-					<p:menuitem value="Laurel" url="/menuInicial.xhtml"
-						icon="ui-icon-star" />
-					<p:menuitem value="Usuarios" url="/usuarios/usuarios.xhtml"
-						icon="ui-icon-search" />
-					<p:menuitem value="Proyectos" url="/proyectos/proyectos.xhtml"
-						icon="ui-icon-document" />
-					<p:menuitem value="Items" url="/items/items.xhtml"
-						icon="ui-icon-wrench" />
-					<p:menuitem value="Estados del workflow"
-						url="/estadosDelWorkflow/estadosDelWorkflow.xhtml"
-						icon="ui-icon-person" />
-				</p:tabMenu>
-
-				<p:panel id="panel" header="Creación de proyecto"
-					style="margin-bottom:10px;">
-					<p:growl id="messages" showDetail="true" />
-					<h:panelGrid columns="2">
-						<h:outputLabel for="nombre" value="Nombre proyecto *" />
-						<p:inputText id="nombre"
-							value="#{interfazProyectos.nombreProyecto}" required="true"
-							label="Nombre">
-							<f:validateLength minimum="2" />
-						</p:inputText>
-						<h3 style="margin-top: 0">Basic PickList</h3>
-						<p:pickList id="pickList" value="#{interfazProyectos.usuarios}"
-							var="usuario" itemLabel="#{usuario.nombre}" itemValue="#{usuario}" 
-							converter="#{usuarioConverter}"/>
-
-						
-					</h:panelGrid>
-				</p:panel>
-
-				<p:commandButton value="Registrar proyecto" update="panel,display"
-					id="ajax" styleClass="ui-priority-primary"
-					actionListener="#{interfazProyectos.registrar}">
-
-				</p:commandButton>
-
-
-				<p:panel id="display" header="Informacion de "
-					style="margin-top:10px;">
-					<h:panelGrid columns="2">
-						<h:outputText value="Proyecto " />
-						<h:outputText value="#{interfazProyectos.nombreProyecto}" />
-					</h:panelGrid>
-				</p:panel>
-
-			</h:form>
-
-		</h:body>
-	</ui:define>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:o="http://omnifaces.org/ui" template="../templates/template.xhtml"
+>
+  <ui:define name="metadata">
+  </ui:define>
+  <ui:define name="content">
+    <h:head>
+      <title>Crear proyecto</title>
+    </h:head>
+    <h:body>
+      <h:form id="form">
+        <p:tabMenu activeIndex="1">
+          <p:menuitem value="Laurel" url="/menuInicial.xhtml" icon="ui-icon-star" />
+          <p:menuitem value="Usuarios" url="/usuarios/usuarios.xhtml" icon="ui-icon-search" />
+          <p:menuitem value="Proyectos" url="/proyectos/proyectos.xhtml" icon="ui-icon-document" />
+          <p:menuitem value="Items" url="/items/items.xhtml" icon="ui-icon-wrench" />
+          <p:menuitem value="Estados del workflow" url="/estadosDelWorkflow/estadosDelWorkflow.xhtml"
+            icon="ui-icon-person"
+          />
+        </p:tabMenu>
+        <p:panel id="panel" header="Creación de proyecto" style="margin-bottom:10px;">
+          <p:growl id="messages" showDetail="true" />
+          <h:panelGrid columns="2">
+            <h:outputLabel for="nombre" value="Nombre proyecto *" />
+            <p:inputText id="nombre" value="#{interfazProyectos.nombreProyecto}" required="true" label="Nombre">
+              <f:validateLength minimum="2" />
+            </p:inputText>
+            <h3 style="margin-top: 0">Basic PickList</h3>
+            <p:pickList id="pickList" value="#{interfazProyectos.usuarios}" var="usuario" itemLabel="#{usuario.nombre}"
+              itemValue="#{usuario}">
+              <o:converter converterId="omnifaces.ListConverter" list="#{interfazProyectos.usuarios.source}" />
+            </p:pickList>
+          </h:panelGrid>
+        </p:panel>
+        <p:commandButton value="Registrar proyecto" update="panel,display" id="ajax" styleClass="ui-priority-primary"
+          actionListener="#{interfazProyectos.registrar}"
+        >
+        </p:commandButton>
+        <p:panel id="display" header="Informacion de " style="margin-top:10px;">
+          <h:panelGrid columns="2">
+            <h:outputText value="Proyecto " />
+            <h:outputText value="#{interfazProyectos.nombreProyecto}" />
+          </h:panelGrid>
+        </p:panel>
+      </h:form>
+    </h:body>
+  </ui:define>
 </ui:composition>
-

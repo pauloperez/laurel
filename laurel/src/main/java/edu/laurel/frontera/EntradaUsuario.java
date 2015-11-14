@@ -1,7 +1,6 @@
 package edu.laurel.frontera;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -11,7 +10,6 @@ import edu.laurel.dominio.Laurel;
 import edu.laurel.dominio.Usuario;
 import edu.laurel.dominio.error.NombreUsuarioExistente;
 import edu.laurel.repositorios.Raiz;
-
 
 public class EntradaUsuario implements Serializable {
 
@@ -33,10 +31,6 @@ public class EntradaUsuario implements Serializable {
 
     public boolean estaInscripto(final String nombreUsuario) {
 	return laurel.estaInscripto(nombreUsuario);
-    }
-
-    public List<Usuario> listar() {
-	return laurel.listarUsuarios();
     }
 
     public Usuario buscar(final int oid) {

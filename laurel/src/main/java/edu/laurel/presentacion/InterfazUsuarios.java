@@ -49,13 +49,9 @@ public class InterfazUsuarios implements Serializable {
     public void validarNombreUsuario() {
 	if (entradaUsuario.estaInscripto(usuario.getUsuario())) {
 	    final FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_WARN,
-		    "Nombre de usuario ya existe!", "");
+	            "Nombre de usuario ya existe!", "");
 	    FacesContext.getCurrentInstance().addMessage("altaUsuario:usuario", facesMessage);
 	}
-    }
-
-    public java.util.List<Usuario> listar() {
-	return entradaUsuario.listar();
     }
 
 }

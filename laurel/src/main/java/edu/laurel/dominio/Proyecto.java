@@ -43,7 +43,6 @@ public class Proyecto extends Base {
 	return lider;
     }
 
-
     public boolean esLider(final Usuario usuario) {
 	boolean esLider = false;
 	if (lider != null & usuario != null)
@@ -99,8 +98,14 @@ public class Proyecto extends Base {
 
 	final Proyecto rhs = (Proyecto) obj;
 	return new EqualsBuilder().
-		// if deriving: appendSuper(super.equals(obj)).
-		append(nombre, rhs.nombre).isEquals();
+	        // if deriving: appendSuper(super.equals(obj)).
+	        append(nombre, rhs.nombre).isEquals();
+    }
+
+    @Override
+    public String toString() {
+	return String.format("Proyecto [nombre=%s, estadosItem=%s, tiposItem=%s, lider=%s, miembros=%s, items=%s]",
+	        nombre, estadosItem, tiposItem, lider, miembros, items);
     }
 
 }
