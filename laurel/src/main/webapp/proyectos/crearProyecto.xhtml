@@ -26,9 +26,19 @@
             <p:inputText id="nombre" value="#{interfazProyectos.nombreProyecto}" required="true" label="Nombre">
               <f:validateLength minimum="2" />
             </p:inputText>
-            <h3 style="margin-top: 0">Basic PickList</h3>
+            <h3 style="margin-top: 10px">Usuario lider</h3>
+            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+              <p:outputLabel for="Lider" value="Lider:" />
+              <p:selectOneRadio id="Lider" value="#{interfazProyectos.lider}" converter="omnifaces.SelectItemsConverter">
+                <f:selectItems value="#{interfazProyectos.usuariosLider}" var="usuario" itemLabel="#{usuario.nombre}"
+                  itemValue="#{usuario}"
+                />
+              </p:selectOneRadio>
+            </h:panelGrid>
+            <h3 style="margin-top: 10px0">Usuarios</h3>
             <p:pickList id="pickList" value="#{interfazProyectos.usuarios}" var="usuario" itemLabel="#{usuario.nombre}"
-              itemValue="#{usuario}">
+              itemValue="#{usuario}"
+            >
               <o:converter converterId="omnifaces.ListConverter" list="#{interfazProyectos.usuarios.source}" />
             </p:pickList>
           </h:panelGrid>

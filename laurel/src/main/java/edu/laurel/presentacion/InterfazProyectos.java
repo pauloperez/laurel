@@ -29,11 +29,13 @@ public class InterfazProyectos implements Serializable {
     private String nombreProyecto;
     private Usuario lider;
     private DualListModel<Usuario> usuarios;
+    private ArrayList<Usuario> usuariosLider;
 
     @PostConstruct
     public void inicio() {
 	usuarios = new DualListModel<Usuario>(new ArrayList<Usuario>(entradaProyecto.listar()),
-	        new ArrayList<Usuario>(5));
+		new ArrayList<Usuario>(5));
+	usuariosLider = new ArrayList<Usuario>(entradaProyecto.listar());
     }
 
     public void registrar() {
@@ -73,4 +75,13 @@ public class InterfazProyectos implements Serializable {
     public void setUsuarios(final DualListModel<Usuario> usuarios) {
 	this.usuarios = usuarios;
     }
+
+    public ArrayList<Usuario> getUsuariosLider() {
+	return usuariosLider;
+    }
+
+    public void setUsuariosLider(final ArrayList<Usuario> usuariosLider) {
+	this.usuariosLider = usuariosLider;
+    }
+
 }
